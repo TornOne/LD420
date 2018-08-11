@@ -251,6 +251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drinkLimit: 3
   beer: {fileID: 1166745507565958, guid: 97f6080266917d5429937de400fd9330, type: 2}
+  sizzurp: {fileID: 0}
 --- !u!114 &114797461024489904
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -263,8 +264,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 143443934180243200}
-  speed: 3
-  rotationSpeed: 1
+  speed: 5
+  rotationSpeed: 2
 --- !u!114 &114966886534114424
 MonoBehaviour:
   m_ObjectHideFlags: 1
