@@ -4,14 +4,22 @@ public class Tray : MonoBehaviour {
 	public int drinkLimit = 3;
 	int drinkCount = 0;
 	GameObject[] glasses;
-	public GameObject beer;
+	public GameObject beer, sizzurp;
 
 	void Start() {
 		glasses = new GameObject[drinkLimit];
 	}
 
 	public bool AddDrink(string drinkName) {
-		GameObject drinkType = beer;
+		GameObject drinkType;
+		switch (drinkName) {
+			case "Beer":
+				drinkType = beer;
+				break;
+			default:
+				drinkType = sizzurp;
+				break;
+		}
 
 		if (drinkCount == drinkLimit) {
 			return false;
