@@ -13,7 +13,7 @@ public class CustomerAI : MonoBehaviour {
 	Transform seat;
 	NavMeshAgent navAgent;
 
-	public Transform leftLegIK, rightLegIK;
+	public Transform leftLegIK, rightLegIK, leftArmIK, rightArmIK;
 	public float footSpeed = 3, footAmplitude = 0.5f, rotationSpeed = 10f;
 
 	int agressionLevel = 0;
@@ -64,6 +64,11 @@ public class CustomerAI : MonoBehaviour {
 
 			transform.rotation = Quaternion.RotateTowards(transform.rotation, seat.rotation, Time.deltaTime * rotationSpeed);
 		}
+
+		// TODO dependent on state and distance to target
+		//if(true){
+
+		//}
 	}
 
 	void OnCollisionEnter(Collision collision) {
