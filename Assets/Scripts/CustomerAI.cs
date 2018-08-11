@@ -11,7 +11,12 @@ public class CustomerAI : MonoBehaviour {
 	private UnityEngine.AI.NavMeshAgent navAgent;
 
 	void PickRandomSeat(){
-		seat = seatsNode.GetChild((int) Random.Range(0, seatsNode.childCount));
+		int seatIndex = (int) Random.Range(0, seatsNode.childCount);
+		for(int i = 0; i < seatsNode.childCount; i++){
+			seat = seatsNode.GetChild(seatIndex + i % seatsNode.childCount);
+			if(!seat.GetComponent<Seat>().isOccupied) break;
+		}
+		seat.GetComponent<Seat>().isOccupied = true;
 	}
 
 	// Use this for initialization
