@@ -39,9 +39,10 @@ GameObject:
   - component: {fileID: 4050648195600768}
   - component: {fileID: 33444585348579126}
   - component: {fileID: 23831253397866784}
+  - component: {fileID: 114054139704262422}
   m_Layer: 0
   m_Name: Tray
-  m_TagString: Untagged
+  m_TagString: Tray
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -237,6 +238,18 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1747375252776188}
   m_Enabled: 1
+--- !u!114 &114054139704262422
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1798370238793878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec3551ba2d1027d42898bfffd7be5ff1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beer: {fileID: 1166745507565958, guid: 97f6080266917d5429937de400fd9330, type: 2}
 --- !u!114 &114797461024489904
 MonoBehaviour:
   m_ObjectHideFlags: 1
