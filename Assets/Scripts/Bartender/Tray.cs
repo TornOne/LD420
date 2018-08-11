@@ -1,20 +1,32 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Tray : MonoBehaviour {
-	List<GameObject> glasses = new List<GameObject>(3);
+	public int drinkLimit = 3;
+	int drinkCount = 0;
+	GameObject[] glasses;
 	public GameObject beer;
+
+	void Start() {
+		glasses = new GameObject[drinkLimit];
+	}
 
 	public bool AddDrink(string drinkName) {
 		GameObject drinkType = beer;
 
-		if (glasses.Count == 3) {
+		if (drinkCount == drinkLimit) {
 			return false;
 		} else {
-			float drinkAngle = glasses.Count * Mathf.Deg2Rad * 120;
-			GameObject drink = Instantiate(drinkType, transform.position + new Vector3(Mathf.Cos(drinkAngle) * 0.1f, 0.1f, Mathf.Sin(drinkAngle) * 0.1f), Quaternion.identity, transform);
+			int emptySlot = 0;
+			for (; emptySlot < drinkLimit; emptySlot++) {
+				if (glasses[emptySlot] == null) {
+					break;
+				}
+			}
+			float drinkAngle = emptySlot * 2 * Mathf.PI / drinkLimit;
+			GameObject drink = Instantiate(drinkType, transform.position + new Vector3(Mathf.Cos(drinkAngle) * 0.02f * drinkLimit, 0.1f, Mathf.Sin(drinkAngle) * 0.02f * drinkLimit), Quaternion.identity, transform);
 			drink.name = drinkName;
-			glasses.Add(drink);
+			glasses[emptySlot] = drink;
+			drinkCount++;
 			return true;
 		}
 	}
@@ -22,10 +34,11 @@ public class Tray : MonoBehaviour {
 	public bool RemoveDrink(string drinkName) {
 		GameObject drinkType = beer;
 
-		foreach (GameObject glass in glasses) {
-			if (glass.name == drinkName) {
-				glasses.Remove(glass);
-				Destroy(glass);
+		for (int i = 0; i < drinkLimit; i++) {
+			if (glasses[i] != null && glasses[i].name == drinkName) {
+				Destroy(glasses[i]);
+				glasses[i] = null;
+				drinkCount--;
 				return true;
 			}
 		}
