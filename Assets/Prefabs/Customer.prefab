@@ -761,13 +761,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seatsNode: {fileID: 0}
+  drinkDesirer: {fileID: 114955818713649150}
   leftLegIK: {fileID: 4862844746209790}
   rightLegIK: {fileID: 4458800003026180}
-  leftArmIK: {fileID: 0}
-  rightArmIK: {fileID: 0}
   footSpeed: 5
   footAmplitude: 0.3
-  rotationSpeed: 100
   agressionCap: 1
   drinkCount: 3
 --- !u!114 &114955818713649150
@@ -1029,7 +1027,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 54653270298991374}
   m_Anchor: {x: 0, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.55600035, y: 0.00000029367357, z: 0.0000043501987}
+  m_ConnectedAnchor: {x: -0.72800016, y: 0.0000003613685, z: 0.0000018926105}
   serializedVersion: 2
   m_Spring: 1000
   m_Damper: 0.2
@@ -1051,7 +1049,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 54414333459214714}
   m_Anchor: {x: 0, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.55600035, y: -0.0000007095937, z: 0.0000043203963}
+  m_ConnectedAnchor: {x: -0.72800016, y: -0.00000064189874, z: 0.0000018032033}
   serializedVersion: 2
   m_Spring: 1000
   m_Damper: 0.2
