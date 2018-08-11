@@ -101,7 +101,6 @@ public class Tray : MonoBehaviour {
 			isCarried = true;
 			transform.parent = player.transform;
 			transform.SetPositionAndRotation(new Vector3(0.5f, 0.3f, 0.9f), Quaternion.identity);
-			
 		}
 	}
 }
