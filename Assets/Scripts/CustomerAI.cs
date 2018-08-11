@@ -4,6 +4,8 @@
 public class CustomerAI : MonoBehaviour {
 
 	public Transform seatsNode;
+	public Transform leftLegIK, rightLegIK;
+	public float footSpeed = 3, footAmplitude = 0.5f, rotationSpeed = 10f;
 
 	private Transform seat;
 	private UnityEngine.AI.NavMeshAgent navAgent;
@@ -24,6 +26,14 @@ public class CustomerAI : MonoBehaviour {
 	}
 
 	void Update () {
+		if(navAgent.remainingDistance > 0.2f){
+			leftLegIK.transform.localPosition = new Vector3(0, -1, Mathf.Sin(Time.time * footSpeed) * footAmplitude);
+			rightLegIK.transform.localPosition = new Vector3(0, -1, -Mathf.Sin(Time.time * footSpeed) * footAmplitude);
+		}else{
+			leftLegIK.transform.localPosition = new Vector3(0, -1, 0);
+			rightLegIK.transform.localPosition = new Vector3(0, -1, 0);
 
+			transform.rotation = Quaternion.RotateTowards(transform.rotation, seat.rotation, Time.deltaTime * rotationSpeed);
+		}
 	}
 }
