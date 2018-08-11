@@ -656,8 +656,9 @@ MonoBehaviour:
   rightLegIK: {fileID: 4458800003026180}
   footSpeed: 5
   footAmplitude: 0.3
-  rotationSpeed: 200
-  DrinkCount: 0
+  rotationSpeed: 100
+  agressionCap: 1
+  drinkCount: 3
 --- !u!114 &114955818713649150
 MonoBehaviour:
   m_ObjectHideFlags: 1

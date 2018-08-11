@@ -1,29 +1,57 @@
-﻿using UnityEngine;
+using UnityEngine;
+using UnityEngine.AI;
 
-[RequireComponent(typeof(UnityEngine.AI.NavMeshAgent))]
+[RequireComponent(typeof(NavMeshAgent))]
 public class CustomerAI : MonoBehaviour {
+	enum State {
+		moving,
+		waiting,
+		fighting
+	}
 
 	public Transform seatsNode;
+	Transform seat;
+	NavMeshAgent navAgent;
+
 	public Transform leftLegIK, rightLegIK;
 	public float footSpeed = 3, footAmplitude = 0.5f, rotationSpeed = 10f;
-	public int DrinkCount = 0;
 
-	private Transform seat;
-	private UnityEngine.AI.NavMeshAgent navAgent;
+	int agressionLevel = 0;
+	public int agressionCap = 1;
 
-	void PickRandomSeat(){
-		int seatIndex = Random.Range(0, seatsNode.childCount);
-		for (int i = 0; i < seatsNode.childCount; i++) {
-			seat = seatsNode.GetChild(seatIndex + i % seatsNode.childCount);
-			if (!seat.GetComponent<Seat>().isOccupied) break;
+	public int drinkCount = 3;
+	public int DrinkCount {
+		get {
+			return drinkCount;
 		}
+
+		set {
+			drinkCount = value;
+			if (value <= 0) {
+				LeaveBar();
+			}
+		}
+	}
+
+	void PickRandomSeat() {
+		int seatIndex = Random.Range(0, seatsNode.childCount);
+
+		for (int i = 0; i < seatsNode.childCount; i++) {
+			seat = seatsNode.GetChild((seatIndex + i) % seatsNode.childCount);
+			if (!seat.GetComponent<Seat>().isOccupied) {
+				break;
+			}
+		}
+
 		seat.GetComponent<Seat>().isOccupied = true;
 	}
 
 	void Start() {
-		navAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+		//Enter bar
+		navAgent = GetComponent<NavMeshAgent>();
 		PickRandomSeat();
 		navAgent.SetDestination(seat.position);
+		drinkCount = Random.Range(1, drinkCount + 1);
 	}
 
 	void Update () {
@@ -36,5 +64,21 @@ public class CustomerAI : MonoBehaviour {
 
 			transform.rotation = Quaternion.RotateTowards(transform.rotation, seat.rotation, Time.deltaTime * rotationSpeed);
 		}
+	}
+
+	void OnCollisionEnter(Collision collision) {
+		Debug.Log("Collided with " + collision.gameObject.name);
+		string otherTag = collision.gameObject.tag;
+		if (otherTag == "Customer" || otherTag == "Player") {
+			agressionLevel++;
+			if (agressionLevel == agressionCap) {
+				Debug.Log("Starting to punch");
+				//TODO: Start fighting
+			}
+		}
+	}
+
+	void LeaveBar() {
+		//TODO
 	}
 }
