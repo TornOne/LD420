@@ -11,13 +11,12 @@ public class DrinkDesirer : MonoBehaviour {
 	}
 
 	void OnMouseDown() {
-		if ((tray.transform.position - transform.position).magnitude <= 2) {
-			tray.RemoveDrink(drinkType);
+		if ((tray.transform.position - transform.position).magnitude <= 2 && tray.RemoveDrink(drinkType)) {
 			AI.DrinkCount--;
 		}
 	}
 
-	void DesireDrink() {
+	public void DesireDrink() {
 		drinkType = drinkTypes[Random.Range(0, drinkTypes.Length)];
 	}
 }

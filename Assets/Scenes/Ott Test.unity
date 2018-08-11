@@ -310,6 +310,11 @@ Prefab:
       propertyPath: drinkType
       value: Beer
       objectReference: {fileID: 0}
+    - target: {fileID: 195917374011341966, guid: cfc3ec4bddacb4f0e9ca496af54b4809,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfc3ec4bddacb4f0e9ca496af54b4809, type: 2}
   m_IsPrefabAsset: 0
