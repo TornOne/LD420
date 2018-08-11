@@ -1179,88 +1179,7 @@ Prefab:
       propertyPath: seatsNode
       value: 
       objectReference: {fileID: 1416048024}
-    - target: {fileID: 153441057933100316, guid: cfc3ec4bddacb4f0e9ca496af54b4809,
-        type: 2}
-      propertyPath: m_SwapBodies
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 54659975186638168, guid: cfc3ec4bddacb4f0e9ca496af54b4809,
-        type: 2}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 54659975186638168, guid: cfc3ec4bddacb4f0e9ca496af54b4809,
-        type: 2}
-      propertyPath: m_Constraints
-      value: 28
-      objectReference: {fileID: 0}
-    - target: {fileID: 144352500217977462, guid: cfc3ec4bddacb4f0e9ca496af54b4809,
-        type: 2}
-      propertyPath: m_LowTwistLimit.limit
-      value: -5
-      objectReference: {fileID: 0}
-    - target: {fileID: 144808363759230316, guid: cfc3ec4bddacb4f0e9ca496af54b4809,
-        type: 2}
-      propertyPath: m_LowTwistLimit.limit
-      value: -5
-      objectReference: {fileID: 0}
-    - target: {fileID: 144352500217977462, guid: cfc3ec4bddacb4f0e9ca496af54b4809,
-        type: 2}
-      propertyPath: m_HighTwistLimit.limit
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 144808363759230316, guid: cfc3ec4bddacb4f0e9ca496af54b4809,
-        type: 2}
-      propertyPath: m_HighTwistLimit.limit
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 144352500217977462, guid: cfc3ec4bddacb4f0e9ca496af54b4809,
-        type: 2}
-      propertyPath: m_Swing1Limit.limit
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 144808363759230316, guid: cfc3ec4bddacb4f0e9ca496af54b4809,
-        type: 2}
-      propertyPath: m_Swing1Limit.limit
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 144352500217977462, guid: cfc3ec4bddacb4f0e9ca496af54b4809,
-        type: 2}
-      propertyPath: m_Swing2Limit.limit
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 144808363759230316, guid: cfc3ec4bddacb4f0e9ca496af54b4809,
-        type: 2}
-      propertyPath: m_Swing2Limit.limit
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 144757679073477944, guid: cfc3ec4bddacb4f0e9ca496af54b4809,
-        type: 2}
-      propertyPath: m_Swing1Limit.limit
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 144757679073477944, guid: cfc3ec4bddacb4f0e9ca496af54b4809,
-        type: 2}
-      propertyPath: m_Swing2Limit.limit
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 144757679073477944, guid: cfc3ec4bddacb4f0e9ca496af54b4809,
-        type: 2}
-      propertyPath: m_LowTwistLimit.limit
-      value: -20
-      objectReference: {fileID: 0}
-    - target: {fileID: 144757679073477944, guid: cfc3ec4bddacb4f0e9ca496af54b4809,
-        type: 2}
-      propertyPath: m_HighTwistLimit.limit
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 114263780982262982, guid: cfc3ec4bddacb4f0e9ca496af54b4809,
-        type: 2}
-      propertyPath: rotationSpeed
-      value: 200
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 153441057933100316, guid: cfc3ec4bddacb4f0e9ca496af54b4809, type: 2}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfc3ec4bddacb4f0e9ca496af54b4809, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &610888196
@@ -1893,55 +1812,6 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!1 &984446526 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1577186284855372, guid: cfc3ec4bddacb4f0e9ca496af54b4809,
-    type: 2}
-  m_PrefabInternal: {fileID: 584594409}
---- !u!144 &984446530
-CharacterJoint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 984446526}
-  m_ConnectedBody: {fileID: 2018043303}
-  m_Anchor: {x: 0, y: 0, z: 0}
-  m_Axis: {x: 1, y: 0, z: 0}
-  m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.9763825, y: 0.00000035203993, z: 0.000000059604645}
-  serializedVersion: 2
-  m_SwingAxis: {x: 0, y: 1, z: 0}
-  m_TwistLimitSpring:
-    spring: 0
-    damper: 0
-  m_LowTwistLimit:
-    limit: -20
-    bounciness: 0
-    contactDistance: 0
-  m_HighTwistLimit:
-    limit: 70
-    bounciness: 0
-    contactDistance: 0
-  m_SwingLimitSpring:
-    spring: 0
-    damper: 0
-  m_Swing1Limit:
-    limit: 5
-    bounciness: 0
-    contactDistance: 0
-  m_Swing2Limit:
-    limit: 5
-    bounciness: 0
-    contactDistance: 0
-  m_EnableProjection: 0
-  m_ProjectionDistance: 0.1
-  m_ProjectionAngle: 180
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 1
-  m_ConnectedMassScale: 1
 --- !u!1 &999138796
 GameObject:
   m_ObjectHideFlags: 0
@@ -3643,10 +3513,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1890667759256946, guid: 43e91d70e76e86349a192b4b11cc5e6c, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 114966886534114424, guid: 43e91d70e76e86349a192b4b11cc5e6c,
+        type: 2}
+      propertyPath: tray
+      value: 
+      objectReference: {fileID: 720983609}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43e91d70e76e86349a192b4b11cc5e6c, type: 2}
   m_IsPrefabAsset: 0
@@ -4423,11 +4294,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2011425471}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &2018043303 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 54042651913184128, guid: cfc3ec4bddacb4f0e9ca496af54b4809,
-    type: 2}
-  m_PrefabInternal: {fileID: 584594409}
 --- !u!1 &2027592602
 GameObject:
   m_ObjectHideFlags: 0

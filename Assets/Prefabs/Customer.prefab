@@ -657,6 +657,7 @@ MonoBehaviour:
   footSpeed: 5
   footAmplitude: 0.3
   rotationSpeed: 200
+  DrinkCount: 0
 --- !u!114 &114955818713649150
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -668,7 +669,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 681d1da8dec4b6c489b5f217e07f44e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drinkType: Beer
+  AI: {fileID: 114263780982262982}
+  drinkTypes:
+  - Beer
 --- !u!137 &137545353708801622
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

@@ -6,6 +6,7 @@ public class CustomerAI : MonoBehaviour {
 	public Transform seatsNode;
 	public Transform leftLegIK, rightLegIK;
 	public float footSpeed = 3, footAmplitude = 0.5f, rotationSpeed = 10f;
+	public int DrinkCount = 0;
 
 	private Transform seat;
 	private UnityEngine.AI.NavMeshAgent navAgent;
