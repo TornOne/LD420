@@ -23,7 +23,7 @@ public class Tray : MonoBehaviour {
 				}
 			}
 			float drinkAngle = emptySlot * 2 * Mathf.PI / drinkLimit;
-			GameObject drink = Instantiate(drinkType, transform.position + new Vector3(Mathf.Cos(drinkAngle) * 0.02f * drinkLimit, 0.1f, Mathf.Sin(drinkAngle) * 0.02f * drinkLimit), Quaternion.identity, transform);
+			GameObject drink = Instantiate(drinkType, transform.position + new Vector3(Mathf.Cos(drinkAngle) * (0.1f + 0.01f * drinkLimit), 0.1f, Mathf.Sin(drinkAngle) * (0.1f + 0.01f * drinkLimit)), Quaternion.identity, transform);
 			drink.name = drinkName;
 			glasses[emptySlot] = drink;
 			drinkCount++;
@@ -44,5 +44,9 @@ public class Tray : MonoBehaviour {
 		}
 
 		return false;
+	}
+
+	public void SetHeight(float height) {
+		transform.Translate(new Vector3(0.5f, 0.3f + height, 0.9f) - transform.localPosition);
 	}
 }

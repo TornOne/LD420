@@ -249,6 +249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3551ba2d1027d42898bfffd7be5ff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  drinkLimit: 3
   beer: {fileID: 1166745507565958, guid: 97f6080266917d5429937de400fd9330, type: 2}
 --- !u!114 &114797461024489904
 MonoBehaviour:
@@ -276,6 +277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 1
+  tray: {fileID: 114054139704262422}
 --- !u!143 &143443934180243200
 CharacterController:
   m_ObjectHideFlags: 1
