@@ -1,16 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BartenderMovement : MonoBehaviour {
 	public CharacterController controller;
 
 	public float speed = 1;
 	public float rotationSpeed = 1;
-
-	void Start() {
-		
-	}
 	
 	void Update() {
 		Vector3 moveDirection = transform.TransformDirection(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
