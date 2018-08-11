@@ -66,7 +66,7 @@ public class Tray : MonoBehaviour {
 	}
 
 	public void SetHeight(float height) {
-		transform.Translate(new Vector3(0.5f, 0.3f + height, 0.9f) - transform.localPosition);
+		transform.localPosition = new Vector3(0.5f, 0.3f + height, 0.9f);
 	}
 
 	bool Throw() {
@@ -76,8 +76,8 @@ public class Tray : MonoBehaviour {
 			isCarried = false;
 			meshCollider.enabled = true;
 			rb.isKinematic = false;
-			rb.AddForce(Camera.main.transform.forward, ForceMode.VelocityChange);
 			transform.parent = null;
+			rb.AddForce(Camera.main.transform.forward, ForceMode.VelocityChange);
 
 			for (int i = 0; i < glasses.Length; i++) {
 				if (glasses[i] != null) {
@@ -96,11 +96,12 @@ public class Tray : MonoBehaviour {
 
 	void OnMouseDown() {
 		if (!isCarried && (player.transform.position - transform.position).magnitude <= 3) {
+			isCarried = true;
 			meshCollider.enabled = false;
 			rb.isKinematic = true;
-			isCarried = true;
 			transform.parent = player.transform;
-			transform.SetPositionAndRotation(new Vector3(0.5f, 0.3f, 0.9f), Quaternion.identity);
+			transform.localPosition = new Vector3(0.5f, 0.3f, 0.9f);
+			transform.rotation = Quaternion.identity;
 		}
 	}
 }
