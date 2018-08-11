@@ -161,6 +161,7 @@ GameObject:
   - component: {fileID: 54150996050293332}
   - component: {fileID: 65071769361754950}
   - component: {fileID: 144595773982097462}
+  - component: {fileID: 114697241625690138}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -258,7 +259,6 @@ GameObject:
   - component: {fileID: 4967482812067476}
   - component: {fileID: 195917374011341966}
   - component: {fileID: 114263780982262982}
-  - component: {fileID: 114955818713649150}
   - component: {fileID: 95326280426845340}
   m_Layer: 0
   m_Name: Customer
@@ -761,21 +761,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seatsNode: {fileID: 0}
+  drinkDesirer: {fileID: 114697241625690138}
   leftLegIK: {fileID: 4862844746209790}
   rightLegIK: {fileID: 4458800003026180}
-  leftArmIK: {fileID: 0}
-  rightArmIK: {fileID: 0}
   footSpeed: 5
   footAmplitude: 0.3
-  rotationSpeed: 100
   agressionCap: 1
   drinkCount: 3
---- !u!114 &114955818713649150
+--- !u!114 &114697241625690138
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1952743300502640}
+  m_GameObject: {fileID: 1673329993821754}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 681d1da8dec4b6c489b5f217e07f44e9, type: 3}
@@ -1029,7 +1027,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 54653270298991374}
   m_Anchor: {x: 0, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.55600035, y: 0.00000029367357, z: 0.0000043501987}
+  m_ConnectedAnchor: {x: -0.72800016, y: 0.0000003613685, z: 0.0000018926105}
   serializedVersion: 2
   m_Spring: 1000
   m_Damper: 0.2
@@ -1051,7 +1049,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 54414333459214714}
   m_Anchor: {x: 0, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.55600035, y: -0.0000007095937, z: 0.0000043203963}
+  m_ConnectedAnchor: {x: -0.72800016, y: -0.00000064189874, z: 0.0000018032033}
   serializedVersion: 2
   m_Spring: 1000
   m_Damper: 0.2
@@ -1264,7 +1262,7 @@ NavMeshAgent:
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 180
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1

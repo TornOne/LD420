@@ -32,6 +32,8 @@ public class CameraController : MonoBehaviour {
 		}
 
 		transform.Rotate(-deltaRotation, 0, 0);
-		tray.SetHeight((targetRotation - 90) / (targetRotation < 90 ? 100 : 50));
+		if (tray.isCarried) {
+			tray.SetHeight((targetRotation - 90) / (targetRotation < 90 ? 100 : 50));
+		}
 	}
 }

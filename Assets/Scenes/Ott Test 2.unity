@@ -836,7 +836,7 @@ Light:
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -3513,11 +3513,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114966886534114424, guid: 43e91d70e76e86349a192b4b11cc5e6c,
-        type: 2}
-      propertyPath: tray
-      value: 
-      objectReference: {fileID: 720983609}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43e91d70e76e86349a192b4b11cc5e6c, type: 2}
   m_IsPrefabAsset: 0
