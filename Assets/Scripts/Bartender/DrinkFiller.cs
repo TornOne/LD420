@@ -33,6 +33,7 @@ public class DrinkFiller : MonoBehaviour {
 		isFilling = true;
 		// Spawn drink
 		GameObject drink = Instantiate(drinkPrefab, drinkSpawnPosition.position, drinkSpawnPosition.rotation);
+		drink.GetComponent<Whiskey>().filled = 0;
 		yield return new WaitForSeconds(0.1f);
 
 		// Fill glass

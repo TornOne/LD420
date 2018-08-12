@@ -14,6 +14,9 @@ ModelImporter:
     100016: roof
     100018: room
     100020: //RootNode
+    100022: houses
+    100024: stairs
+    100026: street
     400000: counter
     400002: door
     400004: door_001
@@ -25,6 +28,9 @@ ModelImporter:
     400016: roof
     400018: room
     400020: //RootNode
+    400022: houses
+    400024: stairs
+    400026: street
     2100000: wood
     2100002: floor
     2100004: window
@@ -36,6 +42,10 @@ ModelImporter:
     2100016: horns_001
     2100018: wood_004
     2100020: Black
+    2100022: houses
+    2100024: sand
+    2100026: floor_texture
+    2100028: wall_texture
     2300000: counter
     2300002: door
     2300004: door_001
@@ -45,6 +55,9 @@ ModelImporter:
     2300012: railings
     2300014: roof
     2300016: room
+    2300018: houses
+    2300020: stairs
+    2300022: street
     3300000: counter
     3300002: door
     3300004: door_001
@@ -54,6 +67,9 @@ ModelImporter:
     3300012: railings
     3300014: roof
     3300016: room
+    3300018: houses
+    3300020: stairs
+    3300022: street
     4300000: roof
     4300002: railings
     4300004: room
@@ -63,6 +79,9 @@ ModelImporter:
     4300012: door
     4300014: door_001
     4300016: door_002
+    4300018: houses
+    4300020: street
+    4300022: stairs
     7400000: Default Take
     9500000: //RootNode
     2186277476908879412: ImportLogs

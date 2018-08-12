@@ -98,7 +98,7 @@ public class Tray : MonoBehaviour {
 	}
 
 	void OnMouseDown() {
-		if (!isCarried && (player.transform.position - transform.position).magnitude <= 3) {
+		if (!isCarried && rb.velocity.magnitude < 0.1f) {
 			isCarried = true;
 			meshCollider.enabled = false;
 			rb.isKinematic = true;
