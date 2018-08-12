@@ -17,9 +17,7 @@ public class CustomerAI : MonoBehaviour {
 	public State state {
 		get {
 			return status;
-		}
-
-		set {
+		} set {
 			if (seat.isOccupied && (value != State.moving || value != State.waiting)) {
 				seat.isOccupied = false;
 			}
@@ -27,6 +25,8 @@ public class CustomerAI : MonoBehaviour {
 			if (value == State.fighting) {
 				anim.SetBool("Fighting", true);
 				GetComponentInChildren<SkinnedMeshRenderer>().sharedMesh = aggressiveCustomerMesh;
+			} else {
+				anim.SetBool("Fighting", false);
 			}
 
 			status = value;
@@ -52,15 +52,25 @@ public class CustomerAI : MonoBehaviour {
 	public int DrinkCount {
 		get {
 			return drinkCount;
-		}
-
-		set {
+		} set {
 			drinkCount = value;
 			if (value <= 0) {
 				LeaveBar();
 			} else {
 				drinkDesirer.DesireDrink();
 			}
+		}
+	}
+
+	public float hp = 5;
+	public float Hp {
+		get {
+			return hp;
+		} set {
+			if (value <= 0) {
+				state = State.dead;
+			}
+			hp = value;
 		}
 	}
 
