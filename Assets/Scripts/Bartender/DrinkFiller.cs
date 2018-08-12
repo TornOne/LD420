@@ -1,21 +1,25 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class DrinkFiller : MonoBehaviour {
 	public Transform drinkSpawnPosition;
 	public GameObject drinkPrefab;
-	public GameObject UI;
-	public Tray tray;
+	private Tray tray;
 	public string drinkType;
 	public float fillTime = 0.2f, drinkMoveTime = 0.3f;
 	public bool isFilling = false;
 
+	void Start(){
+		tray = GameObject.FindGameObjectWithTag("Tray").GetComponent<Tray>();
+	}
+
 	void OnMouseEnter() {
-		UI.SetActive(true);
+		GameObject.FindGameObjectWithTag("UI").GetComponent<UIManager>().SetTapCrosshair();
 	}
 
 	void OnMouseExit() {
-		UI.SetActive(false);
+		GameObject.FindGameObjectWithTag("UI").GetComponent<UIManager>().ClearCrosshair();
 	}
 
 	private void OnMouseUp() {
