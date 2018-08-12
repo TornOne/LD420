@@ -18,7 +18,7 @@ public class DrinkDesirer : MonoBehaviour {
 			player.carry = AI.gameObject;
 			AI.state = CustomerAI.State.struggling;
 			AI.transform.parent = Camera.main.transform;
-			AI.transform.localPosition = new Vector3(0, 0, 3);
+			AI.transform.localPosition = new Vector3(0, 0, 2);
 		} else if (AI.state == CustomerAI.State.waiting && (tray.transform.position - transform.position).magnitude <= 2 && tray.RemoveDrink(drinkType)) {
 			drinkType = "";
 			AI.DrinkCount--;
