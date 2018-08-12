@@ -11,7 +11,7 @@ public class Tray : MonoBehaviour {
 
 	void Start() {
 		glasses = new GameObject[drinkLimit];
-		meshCollider = GetComponent<MeshCollider>();
+		meshCollider = GetComponentInChildren<MeshCollider>();
 		rb = GetComponent<Rigidbody>();
 	}
 
@@ -43,7 +43,8 @@ public class Tray : MonoBehaviour {
 			}
 			float drinkAngle = emptySlot * 2 * Mathf.PI / drinkLimit;
 			GameObject drink = Instantiate(drinkType, transform);
-			drink.transform.localPosition = new Vector3(Mathf.Cos(drinkAngle) * (0.1f + 0.01f * drinkLimit), 0.1f, Mathf.Sin(drinkAngle) * (0.1f + 0.01f * drinkLimit)); //TODO: Proper position, once scales are fixed
+			drink.transform.localPosition = new Vector3(Mathf.Cos(drinkAngle) * (0.1f + 0.01f * drinkLimit), 0, Mathf.Sin(drinkAngle) * (0.1f + 0.01f * drinkLimit));
+			drink.transform.localRotation = Quaternion.Euler(0, -Mathf.Rad2Deg * drinkAngle, 0);
 			drink.name = drinkName;
 			glasses[emptySlot] = drink;
 			drinkCount++;
