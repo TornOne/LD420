@@ -34,7 +34,6 @@ public class CustomerAI : MonoBehaviour {
 	public DrinkDesirer drinkDesirer;
 	public List<GameObject> colliders;
 
-	public Transform leftLegIK, rightLegIK;
 	public float footSpeed = 3, footAmplitude = 0.5f;
 
 	int agressionLevel = 0;
@@ -106,15 +105,11 @@ public class CustomerAI : MonoBehaviour {
 		state = State.moving;
 
 		while (state == State.moving && (navAgent.pathPending || navAgent.remainingDistance > 0.2f)) {
-			leftLegIK.transform.localPosition = new Vector3(0, -1, Mathf.Sin(Time.time * footSpeed) * footAmplitude);
-			rightLegIK.transform.localPosition = new Vector3(0, -1, -Mathf.Sin(Time.time * footSpeed) * footAmplitude);
 			yield return null;
 		}
 
 		navAgent.ResetPath();
 		navAgent.enabled = false;
-		leftLegIK.transform.localPosition = new Vector3(0, -1, 0);
-		rightLegIK.transform.localPosition = new Vector3(0, -1, 0);
 
 		//Only do finish action if you reached the destination
 		if (state != State.moving) {
@@ -129,7 +124,7 @@ public class CustomerAI : MonoBehaviour {
 			case "leave":
 				Destroy(gameObject);
 				break;
-				
+
 		}
 	}
 
