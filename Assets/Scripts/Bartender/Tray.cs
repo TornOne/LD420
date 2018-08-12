@@ -102,7 +102,6 @@ public class Tray : MonoBehaviour {
 			meshCollider.enabled = false;
 			rb.isKinematic = true;
 			transform.parent = player.transform;
-			transform.localPosition = new Vector3(0.5f, 0.3f, 0.9f);
 			transform.rotation = Quaternion.identity;
 		}
 	}

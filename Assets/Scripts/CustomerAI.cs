@@ -12,10 +12,23 @@ public class CustomerAI : MonoBehaviour {
 		struggling,
 		dead
 	}
-	public State state;
+	State status = State.moving;
+	public State state {
+		get {
+			return status;
+		}
+
+		set {
+			if (seat.isOccupied && (value != State.moving || value != State.waiting)) {
+				seat.isOccupied = false;
+			}
+			status = value;
+		}
+	}
 
 	public Transform seatsNode;
-	Transform seat;
+	Transform seatLoc;
+	Seat seat;
 	NavMeshAgent navAgent;
 
 	public DrinkDesirer drinkDesirer;
@@ -43,25 +56,26 @@ public class CustomerAI : MonoBehaviour {
 		}
 	}
 
+	void Start() {
+		navAgent = GetComponent<NavMeshAgent>();
+		//Enter bar
+		drinkCount = Random.Range(1, drinkCount + 1);
+		PickRandomSeat();
+		StartCoroutine(MoveTo(seatLoc.position, "sit"));
+	}
+
 	void PickRandomSeat() {
 		int seatIndex = Random.Range(0, seatsNode.childCount);
 
 		for (int i = 0; i < seatsNode.childCount; i++) {
-			seat = seatsNode.GetChild((seatIndex + i) % seatsNode.childCount);
-			if (!seat.GetComponent<Seat>().isOccupied) {
+			seatLoc = seatsNode.GetChild((seatIndex + i) % seatsNode.childCount);
+			seat = seatLoc.GetComponent<Seat>();
+			if (!seat.isOccupied) {
 				break;
 			}
 		}
 
-		seat.GetComponent<Seat>().isOccupied = true;
-	}
-
-	void Start() {
-		//Enter bar
-		navAgent = GetComponent<NavMeshAgent>();
-		drinkCount = Random.Range(1, drinkCount + 1);
-		PickRandomSeat();
-		StartCoroutine(MoveTo(seat.position, "sit"));
+		seat.isOccupied = true;
 	}
 
 	public void HandleCollision(Collision collision) {
@@ -82,10 +96,12 @@ public class CustomerAI : MonoBehaviour {
 	}
 
 	void LeaveBar() {
+		seat.isOccupied = false;
 		StartCoroutine(MoveTo(new Vector3(0, 0, -15), "leave"));
 	}
 
 	IEnumerator MoveTo(Vector3 position, string finishAction = "") {
+		navAgent.enabled = true;
 		navAgent.SetDestination(position);
 		state = State.moving;
 
@@ -96,6 +112,7 @@ public class CustomerAI : MonoBehaviour {
 		}
 
 		navAgent.ResetPath();
+		navAgent.enabled = false;
 		leftLegIK.transform.localPosition = new Vector3(0, -1, 0);
 		rightLegIK.transform.localPosition = new Vector3(0, -1, 0);
 
@@ -106,6 +123,7 @@ public class CustomerAI : MonoBehaviour {
 
 		switch (finishAction) {
 			case "sit":
+				state = State.waiting;
 				StartCoroutine(FaceTable());
 				break;
 			case "leave":
@@ -118,10 +136,9 @@ public class CustomerAI : MonoBehaviour {
 	IEnumerator FaceTable() {
 		float startTime = Time.time;
 		while (Time.time - startTime < 1) {
-			transform.rotation = Quaternion.RotateTowards(transform.rotation, seat.rotation, Time.deltaTime * navAgent.angularSpeed);
+			transform.rotation = Quaternion.RotateTowards(transform.rotation, seatLoc.rotation, Time.deltaTime * navAgent.angularSpeed);
 			yield return null;
 		}
-		state = State.waiting;
 		DrinkCount = drinkCount;
 	}
 }
