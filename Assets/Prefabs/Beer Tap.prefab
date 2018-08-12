@@ -104,7 +104,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1345223526154198}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 3.2923136, y: 1.05, z: 3.133091}
+  m_LocalPosition: {x: 3.2923136, y: 1.034, z: 3.133091}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224557782003196646}
@@ -241,7 +241,9 @@ MonoBehaviour:
   UI: {fileID: 1179847129645940}
   tray: {fileID: 0}
   drinkType: Beer
-  fillTime: 1
+  fillTime: 0.4
+  drinkMoveTime: 0.6
+  isFilling: 0
 --- !u!114 &114104360427234062
 MonoBehaviour:
   m_ObjectHideFlags: 1

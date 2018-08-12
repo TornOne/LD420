@@ -24,16 +24,18 @@ public class CustomerAI : MonoBehaviour {
 
 			if (value == State.fighting) {
 				anim.SetBool("Fighting", true);
+				EnableFists(true);
 				GetComponentInChildren<SkinnedMeshRenderer>().sharedMesh = aggressiveCustomerMesh;
 			} else {
 				anim.SetBool("Fighting", false);
+				EnableFists(false);
 			}
 
 			status = value;
 		}
 	}
 
-	public Transform seatsNode;
+	Transform seatsNode;
 	Transform seatLoc;
 	Seat seat;
 	NavMeshAgent navAgent;
@@ -42,6 +44,8 @@ public class CustomerAI : MonoBehaviour {
 	public Mesh aggressiveCustomerMesh;
 	public DrinkDesirer drinkDesirer;
 	public List<GameObject> colliders;
+	public Rigidbody rootNode;
+	public Collider fist1, fist2;
 
 	public float footSpeed = 3, footAmplitude = 0.5f;
 
@@ -75,6 +79,7 @@ public class CustomerAI : MonoBehaviour {
 	}
 
 	void Start() {
+		seatsNode = GameObject.FindGameObjectWithTag("SeatNode").transform;
 		navAgent = GetComponent<NavMeshAgent>();
 		anim = GetComponent<Animator>();
 		//Enter bar
@@ -97,13 +102,25 @@ public class CustomerAI : MonoBehaviour {
 		seat.isOccupied = true;
 	}
 
+	void EnableFists(bool enabled) {
+		fist1.enabled = enabled;
+		fist2.enabled = enabled;
+	}
+
+	public IEnumerator Ragdollify(float time) {
+		rootNode.isKinematic = false;
+		yield return new WaitForSeconds(time);
+		if (state != State.dead && state != State.struggling) {
+			rootNode.isKinematic = true;
+		}
+	}
+
 	public void HandleCollision(Collision collision) {
 		//Ignore collisions with self
 		if (colliders.Contains(collision.gameObject)) {
 			return;
 		}
 
-		Debug.Log(name + " collided with " + collision.gameObject.name);
 		string otherTag = collision.gameObject.tag;
 		if (otherTag == "Customer" || otherTag == "Player") {
 			agressionLevel++;
