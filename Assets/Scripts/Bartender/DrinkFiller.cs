@@ -7,7 +7,7 @@ public class DrinkFiller : MonoBehaviour {
 	public GameObject UI;
 	public Tray tray;
 	public string drinkType;
-	public float fillTime = 0.5f, drinkMoveSpeed = 1;
+	public float fillTime = 0.2f, drinkMoveTime = 0.3f;
 	public bool isFilling = false;
 
 	void OnMouseEnter() {
@@ -44,13 +44,15 @@ public class DrinkFiller : MonoBehaviour {
 			yield return null;
 		}
 
-		while(Vector3.Distance(drink.transform.position, tray.transform.position) > 0.2f){
+		float startTime = Time.time;
+
+		while(Vector3.Distance(drink.transform.position, tray.transform.position) > 0.1f){
 			if(!tray.isCarried) {
 				Destroy(drink);
 				yield break;
 			}
 
-			float moveDistance = Time.deltaTime * drinkMoveSpeed * Vector3.Distance(drink.transform.position, tray.transform.position);
+			float moveDistance = Vector3.Distance(drink.transform.position, tray.transform.position) / (startTime + drinkMoveTime - Time.time) * Time.deltaTime;
 			drink.transform.position = Vector3.MoveTowards(drink.transform.position, tray.transform.position, moveDistance);
 			yield return null;
 		}
