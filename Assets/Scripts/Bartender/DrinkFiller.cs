@@ -5,7 +5,7 @@ public class DrinkFiller : MonoBehaviour {
 	public string drinkType;
 
 	void OnMouseDown() {
-		if ((tray.transform.position - transform.position).magnitude <= 1 && tray.isCarried) {
+		if ((tray.transform.position - transform.position).magnitude <= 1.5f && tray.isCarried) {
 			tray.AddDrink(drinkType);
 		}
 	}

@@ -42,7 +42,8 @@ public class Tray : MonoBehaviour {
 				}
 			}
 			float drinkAngle = emptySlot * 2 * Mathf.PI / drinkLimit;
-			GameObject drink = Instantiate(drinkType, transform.position + new Vector3(Mathf.Cos(drinkAngle) * (0.1f + 0.01f * drinkLimit), 0.1f, Mathf.Sin(drinkAngle) * (0.1f + 0.01f * drinkLimit)), Quaternion.identity, transform);
+			GameObject drink = Instantiate(drinkType, transform);
+			drink.transform.localPosition = new Vector3(Mathf.Cos(drinkAngle) * (0.1f + 0.01f * drinkLimit), 0.1f, Mathf.Sin(drinkAngle) * (0.1f + 0.01f * drinkLimit)); //TODO: Proper position, once scales are fixed
 			drink.name = drinkName;
 			glasses[emptySlot] = drink;
 			drinkCount++;
@@ -77,14 +78,15 @@ public class Tray : MonoBehaviour {
 			meshCollider.enabled = true;
 			rb.isKinematic = false;
 			transform.parent = null;
-			rb.AddForce(Camera.main.transform.forward, ForceMode.VelocityChange);
+			rb.AddForce(Camera.main.transform.forward * 10, ForceMode.VelocityChange);
+			drinkCount = 0;
 
 			for (int i = 0; i < glasses.Length; i++) {
 				if (glasses[i] != null) {
 					glasses[i].GetComponent<BoxCollider>().enabled = true;
 					Rigidbody glassRb = glasses[i].GetComponent<Rigidbody>();
 					glassRb.isKinematic = false;
-					glassRb.AddForce(Camera.main.transform.forward, ForceMode.VelocityChange);
+					glassRb.AddForce(Camera.main.transform.forward * 10, ForceMode.VelocityChange);
 					glasses[i].transform.parent = null;
 					glasses[i] = null;
 				}
@@ -100,7 +102,6 @@ public class Tray : MonoBehaviour {
 			meshCollider.enabled = false;
 			rb.isKinematic = true;
 			transform.parent = player.transform;
-			transform.localPosition = new Vector3(0.5f, 0.3f, 0.9f);
 			transform.rotation = Quaternion.identity;
 		}
 	}
