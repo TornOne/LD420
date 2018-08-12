@@ -120,7 +120,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1890667759256946}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 1.2909759, y: 1.0000005, z: 5.76435}
+  m_LocalPosition: {x: 2.98, y: 1.1, z: 5.19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4066494391456284}
@@ -333,7 +333,7 @@ MonoBehaviour:
   isCarried: 1
   drinkLimit: 3
   player: {fileID: 1890667759256946}
-  beer: {fileID: 1166745507565958, guid: 97f6080266917d5429937de400fd9330, type: 2}
+  beer: {fileID: 1750931437620636, guid: b049256595fde48f0a7cd358656140d7, type: 2}
   sizzurp: {fileID: 1895791117055030, guid: 4ecd6013d82106d4f97273a9f59fe0cc, type: 2}
 --- !u!114 &114200770999921486
 MonoBehaviour:

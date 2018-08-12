@@ -54,8 +54,24 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4658191213062962}
+  - component: {fileID: 65475774308495936}
   m_Layer: 0
   m_Name: Beer Tap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1721052369431920
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4680964045443340}
+  m_Layer: 0
+  m_Name: drinkSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,8 +88,8 @@ GameObject:
   - component: {fileID: 33652577814986482}
   - component: {fileID: 23397973980857300}
   - component: {fileID: 95539423533949920}
-  - component: {fileID: 136142396629864408}
   - component: {fileID: 114083861934838300}
+  - component: {fileID: 65849411250623114}
   m_Layer: 0
   m_Name: beer barrel
   m_TagString: Untagged
@@ -88,7 +104,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1345223526154198}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 3.2923136, y: 1.034, z: 3.133091}
+  m_LocalPosition: {x: 3.2923136, y: 1.05, z: 3.133091}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224557782003196646}
@@ -96,6 +112,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!4 &4680964045443340
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1721052369431920}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.825, y: -0, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4890661637209904}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4890661637209904
 Transform:
   m_ObjectHideFlags: 1
@@ -105,7 +134,8 @@ Transform:
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4680964045443340}
   m_Father: {fileID: 4658191213062962}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 0}
@@ -152,6 +182,30 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1927772703216414}
   m_Mesh: {fileID: 4300000, guid: 8747e124228d44b9f867fa9a410731ce, type: 3}
+--- !u!65 &65475774308495936
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1345223526154198}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.47, z: 0}
+--- !u!65 &65849411250623114
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1927772703216414}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.11, y: 0.84, z: 0.88}
+  m_Center: {x: 0.55, y: -0.00000023841856, z: 0.5}
 --- !u!95 &95539423533949920
 Animator:
   serializedVersion: 3
@@ -181,6 +235,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ed4e9b2dc7c89148a581eb23cb18f21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  drinkSpawnPosition: {fileID: 4680964045443340}
+  drinkPrefab: {fileID: 1750931437620636, guid: b049256595fde48f0a7cd358656140d7,
+    type: 2}
   UI: {fileID: 1179847129645940}
   tray: {fileID: 0}
   drinkType: Beer
@@ -257,19 +314,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!136 &136142396629864408
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1927772703216414}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1.5
-  m_Direction: 0
-  m_Center: {x: 0, y: 0, z: 0.475}
 --- !u!222 &222586994893298774
 CanvasRenderer:
   m_ObjectHideFlags: 1

@@ -126,7 +126,7 @@ GameObject:
   m_Layer: 0
   m_Name: Seat (3)
   m_TagString: Untagged
-  m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -235,7 +235,7 @@ GameObject:
   m_Layer: 0
   m_Name: Seat (4)
   m_TagString: Untagged
-  m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -276,7 +276,7 @@ GameObject:
   m_Layer: 0
   m_Name: Seat (1)
   m_TagString: Untagged
-  m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -642,7 +642,7 @@ GameObject:
   m_Layer: 0
   m_Name: Seat
   m_TagString: Untagged
-  m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -978,20 +978,24 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114488463790422262, guid: 0a86b762297bf3542966c99ba552de97,
-        type: 2}
-      propertyPath: tray
-      value: 
-      objectReference: {fileID: 720983609}
-    - target: {fileID: 4658191213062962, guid: 0a86b762297bf3542966c99ba552de97, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -90
-      objectReference: {fileID: 0}
     - target: {fileID: 114083861934838300, guid: 0a86b762297bf3542966c99ba552de97,
         type: 2}
       propertyPath: tray
       value: 
       objectReference: {fileID: 720983609}
+    - target: {fileID: 4680964045443340, guid: 0a86b762297bf3542966c99ba552de97, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680964045443340, guid: 0a86b762297bf3542966c99ba552de97, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 114083861934838300, guid: 0a86b762297bf3542966c99ba552de97,
+        type: 2}
+      propertyPath: drinkMoveSpeed
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a86b762297bf3542966c99ba552de97, type: 2}
   m_IsPrefabAsset: 0
@@ -1485,7 +1489,7 @@ GameObject:
   m_Layer: 0
   m_Name: Seat (2)
   m_TagString: Untagged
-  m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1586,15 +1590,6 @@ Prefab:
     - target: {fileID: 4618604983920992, guid: 43e91d70e76e86349a192b4b11cc5e6c, type: 2}
       propertyPath: m_RootOrder
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114966886534114424, guid: 43e91d70e76e86349a192b4b11cc5e6c,
-        type: 2}
-      propertyPath: tray
-      value: 
-      objectReference: {fileID: 720983609}
-    - target: {fileID: 1890667759256946, guid: 43e91d70e76e86349a192b4b11cc5e6c, type: 2}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43e91d70e76e86349a192b4b11cc5e6c, type: 2}

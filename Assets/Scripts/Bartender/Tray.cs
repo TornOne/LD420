@@ -44,7 +44,7 @@ public class Tray : MonoBehaviour {
 			float drinkAngle = emptySlot * 2 * Mathf.PI / drinkLimit;
 			GameObject drink = Instantiate(drinkType, transform);
 			drink.transform.localPosition = new Vector3(Mathf.Cos(drinkAngle) * (0.1f + 0.01f * drinkLimit), 0, Mathf.Sin(drinkAngle) * (0.1f + 0.01f * drinkLimit));
-			drink.transform.localRotation = Quaternion.Euler(0, -Mathf.Rad2Deg * drinkAngle, 0);
+			//drink.transform.localRotation *= Quaternion.Euler(0, -Mathf.Rad2Deg * drinkAngle, 0);
 			drink.name = drinkName;
 			glasses[emptySlot] = drink;
 			drinkCount++;
