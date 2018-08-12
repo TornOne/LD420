@@ -1,23 +1,25 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class CustomerAI : MonoBehaviour {
-	enum State {
+	public enum State {
 		moving,
 		waiting,
 		fighting,
 		struggling,
 		dead
 	}
-	State state;
+	public State state;
 
 	public Transform seatsNode;
 	Transform seat;
 	NavMeshAgent navAgent;
 
 	public DrinkDesirer drinkDesirer;
+	public List<GameObject> colliders;
 
 	public Transform leftLegIK, rightLegIK;
 	public float footSpeed = 3, footAmplitude = 0.5f;
@@ -62,14 +64,19 @@ public class CustomerAI : MonoBehaviour {
 		StartCoroutine(MoveTo(seat.position, "sit"));
 	}
 
-	void OnCollisionEnter(Collision collision) {
-		Debug.Log("Collided with " + collision.gameObject.name);
+	public void HandleCollision(Collision collision) {
+		//Ignore collisions with self
+		if (colliders.Contains(collision.gameObject)) {
+			return;
+		}
+
+		Debug.Log(name + " collided with " + collision.gameObject.name);
 		string otherTag = collision.gameObject.tag;
 		if (otherTag == "Customer" || otherTag == "Player") {
 			agressionLevel++;
 			if (agressionLevel == agressionCap) {
 				Debug.Log("Starting to punch");
-				//TODO: Start fighting
+				state = State.fighting;
 			}
 		}
 	}

@@ -11,7 +11,7 @@ public class DrinkDesirer : MonoBehaviour {
 	}
 
 	void OnMouseDown() {
-		if ((tray.transform.position - transform.position).magnitude <= 1 && tray.RemoveDrink(drinkType)) {
+		if (AI.state == CustomerAI.State.waiting && (tray.transform.position - transform.position).magnitude <= 2 && tray.RemoveDrink(drinkType)) {
 			drinkType = "";
 			AI.DrinkCount--;
 		}

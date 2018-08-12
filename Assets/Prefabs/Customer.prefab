@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 54877920939046168}
   - component: {fileID: 153340620919973572}
   - component: {fileID: 65696901406474476}
+  - component: {fileID: 114798538611729942}
   m_Layer: 0
   m_Name: Arm_R
   m_TagString: Untagged
@@ -72,6 +73,7 @@ GameObject:
   - component: {fileID: 54803053540725164}
   - component: {fileID: 144854889990679694}
   - component: {fileID: 65370524245456806}
+  - component: {fileID: 114684875820858204}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -90,6 +92,7 @@ GameObject:
   - component: {fileID: 54653270298991374}
   - component: {fileID: 144186311876649384}
   - component: {fileID: 65437541213077724}
+  - component: {fileID: 114225366686866714}
   m_Layer: 0
   m_Name: Leg_R
   m_TagString: Untagged
@@ -108,6 +111,7 @@ GameObject:
   - component: {fileID: 54414333459214714}
   - component: {fileID: 144041253550734746}
   - component: {fileID: 65087568209385228}
+  - component: {fileID: 114198153176491072}
   m_Layer: 0
   m_Name: Leg_L
   m_TagString: Untagged
@@ -143,6 +147,7 @@ GameObject:
   - component: {fileID: 54430702543783808}
   - component: {fileID: 153806868856616444}
   - component: {fileID: 65220109433218234}
+  - component: {fileID: 114238001210049424}
   m_Layer: 0
   m_Name: Arm_L
   m_TagString: Untagged
@@ -162,6 +167,7 @@ GameObject:
   - component: {fileID: 65071769361754950}
   - component: {fileID: 144595773982097462}
   - component: {fileID: 114697241625690138}
+  - component: {fileID: 114773494433962200}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -749,6 +755,42 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114198153176491072
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1399819105701588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c5dd33792715ac4dbed7026a6688720, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 114263780982262982}
+--- !u!114 &114225366686866714
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1383142296271200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c5dd33792715ac4dbed7026a6688720, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 114263780982262982}
+--- !u!114 &114238001210049424
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1486272538561908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c5dd33792715ac4dbed7026a6688720, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 114263780982262982}
 --- !u!114 &114263780982262982
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -762,12 +804,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   seatsNode: {fileID: 0}
   drinkDesirer: {fileID: 114697241625690138}
+  colliders:
+  - {fileID: 1179828986501646}
+  - {fileID: 1486272538561908}
+  - {fileID: 1159702513600802}
+  - {fileID: 1673329993821754}
+  - {fileID: 1399819105701588}
+  - {fileID: 1383142296271200}
   leftLegIK: {fileID: 4862844746209790}
   rightLegIK: {fileID: 4458800003026180}
   footSpeed: 5
   footAmplitude: 0.3
   agressionCap: 1
   drinkCount: 3
+--- !u!114 &114684875820858204
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1179828986501646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c5dd33792715ac4dbed7026a6688720, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 114263780982262982}
 --- !u!114 &114697241625690138
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -782,6 +843,30 @@ MonoBehaviour:
   AI: {fileID: 114263780982262982}
   drinkTypes:
   - Beer
+--- !u!114 &114773494433962200
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1673329993821754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c5dd33792715ac4dbed7026a6688720, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 114263780982262982}
+--- !u!114 &114798538611729942
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1159702513600802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c5dd33792715ac4dbed7026a6688720, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 114263780982262982}
 --- !u!137 &137221652616653910
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
