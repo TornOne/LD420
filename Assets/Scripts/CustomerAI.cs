@@ -23,6 +23,12 @@ public class CustomerAI : MonoBehaviour {
 			if (seat.isOccupied && (value != State.moving || value != State.waiting)) {
 				seat.isOccupied = false;
 			}
+
+			if (value == State.fighting) {
+				anim.SetBool("Fighting", true);
+				GetComponentInChildren<SkinnedMeshRenderer>().sharedMesh = aggressiveCustomerMesh;
+			}
+
 			status = value;
 		}
 	}
@@ -94,8 +100,6 @@ public class CustomerAI : MonoBehaviour {
 			if (agressionLevel == agressionCap) {
 				Debug.Log("Starting to punch");
 				state = State.fighting;
-				anim.SetBool("Fighting", true);
-				GetComponentInChildren<SkinnedMeshRenderer>().sharedMesh = aggressiveCustomerMesh;
 			}
 		}
 	}
@@ -115,6 +119,7 @@ public class CustomerAI : MonoBehaviour {
 			yield return null;
 		}
 
+		anim.SetFloat("WalkSpeed", 0);
 		navAgent.ResetPath();
 		navAgent.enabled = false;
 
@@ -126,7 +131,6 @@ public class CustomerAI : MonoBehaviour {
 		switch (finishAction) {
 			case "sit":
 				state = State.waiting;
-				anim.SetFloat("WalkSpeed", 0);
 				StartCoroutine(FaceTable());
 				break;
 			case "leave":
