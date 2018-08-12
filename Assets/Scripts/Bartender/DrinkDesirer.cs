@@ -11,6 +11,7 @@ public class DrinkDesirer : MonoBehaviour {
 	public GameObject drinkPrefab;
 	public Transform hand;
 	public float drinkingTime = 10f;
+	public float drinkAlcoholContent = 0.2f;
 
 	void Start() {
 		player = GameObject.FindGameObjectWithTag("Player").GetComponent<BartenderLogic>();
@@ -53,6 +54,7 @@ public class DrinkDesirer : MonoBehaviour {
 		drink.GetComponent<Collider>().enabled = true;
 
 		AI.DrinkCount--;
+		AI.GetComponent<MuscleController>().consciousness -= drinkAlcoholContent;
 		isDrinking = false;
 	}
 }

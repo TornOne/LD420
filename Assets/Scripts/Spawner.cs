@@ -12,5 +12,6 @@ public class Spawner : MonoBehaviour {
 	IEnumerator Spawn(float time) {
 		Instantiate(spawnable, transform.position, Quaternion.identity);
 		yield return new WaitForSeconds(spawnTime);
+		StartCoroutine(Spawn(spawnTime));
 	}
 }

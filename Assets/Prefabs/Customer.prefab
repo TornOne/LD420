@@ -19,7 +19,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4528330817213564}
-  - component: {fileID: 95104186233030900}
   m_Layer: 0
   m_Name: cowboy
   m_TagString: Untagged
@@ -92,7 +91,7 @@ GameObject:
   - component: {fileID: 65765180080120064}
   - component: {fileID: 114383096801122008}
   m_Layer: 0
-  m_Name: Hurtbox
+  m_Name: Hurtbox_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109,7 +108,7 @@ GameObject:
   - component: {fileID: 65204049666947768}
   - component: {fileID: 114197928261546722}
   m_Layer: 0
-  m_Name: Hurtbox
+  m_Name: Hurtbox_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -435,7 +434,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1822755922781428}
   m_LocalRotation: {x: 0.49786925, y: 0.5021108, z: 0.5031561, w: -0.4968349}
-  m_LocalPosition: {x: -0, y: 0.10301626, z: 0.97555745}
+  m_LocalPosition: {x: -0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4450933060157364}
@@ -477,7 +476,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1952743300502640}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.374082, y: 2.16, z: -3.0925565}
+  m_LocalPosition: {x: 0.86604136, y: 1.46, z: -17.605318}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4528330817213564}
@@ -715,24 +714,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.5, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!95 &95104186233030900
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1124444813554458}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 320c2ebeea7574696b033fb37b4f6df1, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!95 &95326280426845340
 Animator:
   serializedVersion: 3
@@ -824,6 +805,7 @@ MonoBehaviour:
   fist2: {fileID: 65765180080120064}
   footSpeed: 5
   footAmplitude: 0.3
+  attackStoppingDistance: 1
   agressionCap: 1
   drinkCount: 3
   hp: 5
@@ -916,6 +898,7 @@ MonoBehaviour:
     type: 2}
   hand: {fileID: 4565926349639428}
   drinkingTime: 10
+  drinkAlcoholContent: 0.2
 --- !u!114 &114851241676423146
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -998,7 +981,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -1.0018868, y: 0.00000036437996, z: 0.0000002384186}
+  m_ConnectedAnchor: {x: -1.0018868, y: -0.0000000020954758, z: -0.0000005960465}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -1042,7 +1025,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.12361508, y: 0.3729701, z: 0.0022494646}
+  m_ConnectedAnchor: {x: 0.12361496, y: 0.37297022, z: 0.0022495838}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -1136,7 +1119,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.12361483, y: -0.40252548, z: 0.002249256}
+  m_ConnectedAnchor: {x: 0.12361495, y: -0.40252566, z: 0.0022493752}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -1230,7 +1213,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -1.0887369, y: 0.0000004768371, z: 0.00000016251579}
+  m_ConnectedAnchor: {x: -1.0887365, y: 0.0000005960464, z: -0.00000013457611}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -1324,12 +1307,12 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.976383, y: -0.00000012945384, z: 0.000000059604645}
+  m_ConnectedAnchor: {x: -0.97638434, y: 0.00000009406358, z: 0.000000059604645}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
-  m_XMotion: 0
-  m_YMotion: 0
-  m_ZMotion: 0
+  m_XMotion: 2
+  m_YMotion: 2
+  m_ZMotion: 2
   m_AngularXMotion: 1
   m_AngularYMotion: 1
   m_AngularZMotion: 1
@@ -1366,22 +1349,22 @@ ConfigurableJoint:
   m_TargetVelocity: {x: 0, y: 0, z: 0}
   m_XDrive:
     serializedVersion: 3
-    positionSpring: 0
+    positionSpring: 1000
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_YDrive:
     serializedVersion: 3
-    positionSpring: 0
+    positionSpring: 1000
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_ZDrive:
     serializedVersion: 3
-    positionSpring: 0
+    positionSpring: 1000
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_TargetRotation: {x: 0, y: 0, z: 0, w: 1}
   m_TargetAngularVelocity: {x: 0, y: 0, z: 0}
-  m_RotationDriveMode: 0
+  m_RotationDriveMode: 1
   m_AngularXDrive:
     serializedVersion: 3
     positionSpring: 0
@@ -1394,7 +1377,7 @@ ConfigurableJoint:
     maximumForce: 3.4028233e+38
   m_SlerpDrive:
     serializedVersion: 3
-    positionSpring: 0
+    positionSpring: 1000
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_ProjectionMode: 0
@@ -1418,7 +1401,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -1.059392, y: 0.000000119209275, z: 0.00000035576522}
+  m_ConnectedAnchor: {x: -1.0593925, y: 0, z: -0.0000014926773}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0

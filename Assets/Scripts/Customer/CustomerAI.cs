@@ -18,17 +18,18 @@ public class CustomerAI : MonoBehaviour {
 		get {
 			return status;
 		} set {
+
 			if (seat.isOccupied && (value != State.moving || value != State.waiting)) {
 				seat.isOccupied = false;
 			}
 
 			if (value == State.fighting) {
 				anim.SetBool("Fighting", true);
-				EnableFists(true);
+				//EnableFists(true);
 				GetComponentInChildren<SkinnedMeshRenderer>().sharedMesh = aggressiveCustomerMesh;
 			} else {
 				anim.SetBool("Fighting", false);
-				EnableFists(false);
+				//EnableFists(false);
 			}
 
 			status = value;
@@ -48,6 +49,7 @@ public class CustomerAI : MonoBehaviour {
 	public Collider fist1, fist2;
 
 	public float footSpeed = 3, footAmplitude = 0.5f;
+	public float attackStoppingDistance = 1.0f;
 
 	int agressionLevel = 0;
 	public int agressionCap = 3;
@@ -102,16 +104,12 @@ public class CustomerAI : MonoBehaviour {
 		seat.isOccupied = true;
 	}
 
-	void EnableFists(bool enabled) {
-		fist1.enabled = enabled;
-		fist2.enabled = enabled;
-	}
-
 	public IEnumerator Ragdollify(float time) {
 		rootNode.isKinematic = false;
 		yield return new WaitForSeconds(time);
 		if (state != State.dead && state != State.struggling) {
 			rootNode.isKinematic = true;
+			StartCoroutine(GetUpCoroutine());
 		}
 	}
 
@@ -178,6 +176,7 @@ public class CustomerAI : MonoBehaviour {
 	}
 
 	IEnumerator ChooseAggro() {
+		navAgent.stoppingDistance = attackStoppingDistance;
 		while (state != State.dead && state != State.struggling) {
 			navAgent.enabled = true;
 			CustomerAI[] customers = FindObjectsOfType<CustomerAI>();
@@ -208,5 +207,17 @@ public class CustomerAI : MonoBehaviour {
 
 		navAgent.ResetPath();
 		navAgent.enabled = false;
+	}
+
+	IEnumerator GetUpCoroutine(){
+		float distance, angle;
+		do{
+			distance = Vector3.Distance(rootNode.transform.localPosition, new Vector3(0, 0, 1));
+			angle = Quaternion.Angle(transform.rotation, Quaternion.Euler(-90, -90, 0));
+
+			rootNode.transform.localPosition = Vector3.MoveTowards(rootNode.transform.localPosition, new Vector3(0, 0, 1), Time.deltaTime * distance);
+			rootNode.transform.localRotation = Quaternion.RotateTowards(rootNode.transform.localRotation, Quaternion.Euler(-90, -90, 0), Time.deltaTime * angle);
+			yield return null;
+		}while(distance > 0.05f && angle > 0.5f);
 	}
 }
