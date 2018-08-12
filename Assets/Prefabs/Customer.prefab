@@ -857,6 +857,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   seatsNode: {fileID: 0}
   drinkDesirer: {fileID: 114697241625690138}
+  colliders: []
   leftLegIK: {fileID: 4862844746209790}
   rightLegIK: {fileID: 4458800003026180}
   footSpeed: 5
@@ -877,10 +878,15 @@ MonoBehaviour:
   rightArmJoint: {fileID: 153340620919973572}
   leftArmJoint: {fileID: 153806868856616444}
   bodyJoint: {fileID: 153375103184742444}
+  rightLegJoint: {fileID: 153300685692516344}
+  leftLegJoint: {fileID: 153070113534679156}
   consciousness: 1
   armsStrength: 0
+  legsStrength: 0
   leftArmTarget: {x: 0, y: 0, z: 0}
   rightArmTarget: {x: 0, y: 0, z: 0}
+  leftLegTarget: {x: 0, y: 0, z: 0}
+  rightLegTarget: {x: 0, y: 0, z: 0}
 --- !u!114 &114697241625690138
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1066,7 +1072,7 @@ ConfigurableJoint:
     maximumForce: 3.4028233e+38
   m_TargetRotation: {x: 0, y: 0, z: 0, w: 1}
   m_TargetAngularVelocity: {x: 0, y: 0, z: 0}
-  m_RotationDriveMode: 0
+  m_RotationDriveMode: 1
   m_AngularXDrive:
     serializedVersion: 3
     positionSpring: 0
@@ -1160,7 +1166,7 @@ ConfigurableJoint:
     maximumForce: 3.4028233e+38
   m_TargetRotation: {x: 0, y: 0, z: 0, w: 1}
   m_TargetAngularVelocity: {x: 0, y: 0, z: 0}
-  m_RotationDriveMode: 0
+  m_RotationDriveMode: 1
   m_AngularXDrive:
     serializedVersion: 3
     positionSpring: 0
