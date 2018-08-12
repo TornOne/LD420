@@ -48,6 +48,9 @@ ModelImporter:
     2100024: sand
     2100026: floor_texture
     2100028: wall_texture
+    2100030: wall_texture__wall_texture_jpg_001
+    2100032: wood__wall_texture_jpg_001
+    2100034: houses__house_jpg_001
     2300000: counter
     2300002: door
     2300004: door_001
@@ -90,7 +93,32 @@ ModelImporter:
     7400000: Default Take
     9500000: //RootNode
     2186277476908879412: ImportLogs
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: floor_texture
+    second: {fileID: 2100000, guid: 202b41a2708c043ca96fb582c36c3fef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: horns_001
+    second: {fileID: 2100000, guid: 018db0e0f51ad48e08113c9578a66978, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: houses__house_jpg_001
+    second: {fileID: 2100000, guid: 018db0e0f51ad48e08113c9578a66978, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wall_texture
+    second: {fileID: 2100000, guid: 3c58910c2ef4c4ef3bc2b9675ee3fafd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wall_texture__wall_texture_jpg_001
+    second: {fileID: 2100000, guid: 3c58910c2ef4c4ef3bc2b9675ee3fafd, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
