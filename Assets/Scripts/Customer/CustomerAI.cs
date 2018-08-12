@@ -50,7 +50,7 @@ public class CustomerAI : MonoBehaviour {
 	public float footSpeed = 3, footAmplitude = 0.5f;
 
 	int agressionLevel = 0;
-	public int agressionCap = 1;
+	public int agressionCap = 3;
 
 	public int drinkCount = 3;
 	public int DrinkCount {
@@ -127,6 +127,7 @@ public class CustomerAI : MonoBehaviour {
 			if (agressionLevel == agressionCap) {
 				Debug.Log("Starting to punch");
 				state = State.fighting;
+				StartCoroutine(ChooseAggro());
 			}
 		}
 	}

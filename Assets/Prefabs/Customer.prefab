@@ -477,7 +477,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1952743300502640}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.67, y: 1.53, z: -14.06}
+  m_LocalPosition: {x: 6.374082, y: 2.16, z: -3.0925565}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4528330817213564}
@@ -809,7 +809,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c455f19ab2dba4c699a97531475e03b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seatsNode: {fileID: 0}
   aggressiveCustomerMesh: {fileID: 4300008, guid: 320c2ebeea7574696b033fb37b4f6df1,
     type: 3}
   drinkDesirer: {fileID: 114697241625690138}
@@ -913,6 +912,10 @@ MonoBehaviour:
   AI: {fileID: 114263780982262982}
   drinkTypes:
   - Beer
+  drinkPrefab: {fileID: 1750931437620636, guid: b049256595fde48f0a7cd358656140d7,
+    type: 2}
+  hand: {fileID: 4565926349639428}
+  drinkingTime: 10
 --- !u!114 &114851241676423146
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -995,7 +998,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -1.0018871, y: -0.0000005988404, z: -0.00000071525585}
+  m_ConnectedAnchor: {x: -1.0018868, y: 0.00000036437996, z: 0.0000002384186}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -1039,7 +1042,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.12361496, y: 0.37297106, z: 0.0022494497}
+  m_ConnectedAnchor: {x: 0.12361508, y: 0.3729701, z: 0.0022494646}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -1133,7 +1136,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.12361483, y: -0.40252644, z: 0.0022492635}
+  m_ConnectedAnchor: {x: 0.12361483, y: -0.40252548, z: 0.002249256}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -1227,7 +1230,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -1.0887369, y: 0.0000004768371, z: -0.00000031432137}
+  m_ConnectedAnchor: {x: -1.0887369, y: 0.0000004768371, z: 0.00000016251579}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -1321,7 +1324,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.9763825, y: -0.00000012479722, z: 0.000000059604645}
+  m_ConnectedAnchor: {x: -0.976383, y: -0.00000012945384, z: 0.000000059604645}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -1415,7 +1418,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -1.0593929, y: 0, z: 0.00000035390258}
+  m_ConnectedAnchor: {x: -1.059392, y: 0.000000119209275, z: 0.00000035576522}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
