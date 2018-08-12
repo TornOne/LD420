@@ -192,7 +192,7 @@ public class CustomerAI : MonoBehaviour {
 					}
 
 					float customerDistance = (customer.transform.position - transform.position).sqrMagnitude;
-					if (customerDistance < closestDistance) {
+					if (customerDistance < closestDistance && customer.state != State.dead) {
 						closestDistance = customerDistance;
 						closestCustomer = customer;
 					}

@@ -805,7 +805,7 @@ MonoBehaviour:
   fist2: {fileID: 65765180080120064}
   footSpeed: 5
   footAmplitude: 0.3
-  attackStoppingDistance: 1
+  attackStoppingDistance: 0.5
   agressionCap: 1
   drinkCount: 3
   hp: 5
