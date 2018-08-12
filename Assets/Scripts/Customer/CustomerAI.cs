@@ -17,12 +17,18 @@ public class CustomerAI : MonoBehaviour {
 	public State state {
 		get {
 			return status;
-		}
-
-		set {
+		} set {
 			if (seat.isOccupied && (value != State.moving || value != State.waiting)) {
 				seat.isOccupied = false;
 			}
+
+			if (value == State.fighting) {
+				anim.SetBool("Fighting", true);
+				GetComponentInChildren<SkinnedMeshRenderer>().sharedMesh = aggressiveCustomerMesh;
+			} else {
+				anim.SetBool("Fighting", false);
+			}
+
 			status = value;
 		}
 	}
@@ -46,15 +52,25 @@ public class CustomerAI : MonoBehaviour {
 	public int DrinkCount {
 		get {
 			return drinkCount;
-		}
-
-		set {
+		} set {
 			drinkCount = value;
 			if (value <= 0) {
 				LeaveBar();
 			} else {
 				drinkDesirer.DesireDrink();
 			}
+		}
+	}
+
+	public float hp = 5;
+	public float Hp {
+		get {
+			return hp;
+		} set {
+			if (value <= 0) {
+				state = State.dead;
+			}
+			hp = value;
 		}
 	}
 
@@ -94,8 +110,6 @@ public class CustomerAI : MonoBehaviour {
 			if (agressionLevel == agressionCap) {
 				Debug.Log("Starting to punch");
 				state = State.fighting;
-				anim.SetBool("Fighting", true);
-				GetComponentInChildren<SkinnedMeshRenderer>().sharedMesh = aggressiveCustomerMesh;
 			}
 		}
 	}
@@ -115,6 +129,7 @@ public class CustomerAI : MonoBehaviour {
 			yield return null;
 		}
 
+		anim.SetFloat("WalkSpeed", 0);
 		navAgent.ResetPath();
 		navAgent.enabled = false;
 
@@ -126,7 +141,6 @@ public class CustomerAI : MonoBehaviour {
 		switch (finishAction) {
 			case "sit":
 				state = State.waiting;
-				anim.SetFloat("WalkSpeed", 0);
 				StartCoroutine(FaceTable());
 				break;
 			case "leave":
