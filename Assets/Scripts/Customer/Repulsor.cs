@@ -8,6 +8,7 @@ public class Repulsor : MonoBehaviour {
 		if (rb != null) {
 			CollisionPropagator prop = rb.GetComponent<CollisionPropagator>();
 			if (prop != null) {
+				prop.parent.Hp--;
 				StartCoroutine(prop.parent.Ragdollify(3));
 			}
 

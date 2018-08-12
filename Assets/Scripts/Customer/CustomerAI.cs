@@ -175,4 +175,37 @@ public class CustomerAI : MonoBehaviour {
 		}
 		DrinkCount = drinkCount;
 	}
+
+	IEnumerator ChooseAggro() {
+		while (state != State.dead && state != State.struggling) {
+			navAgent.enabled = true;
+			CustomerAI[] customers = FindObjectsOfType<CustomerAI>();
+
+			if (customers.Length == 1) {
+				navAgent.SetDestination(transform.position);
+			} else {
+				CustomerAI closestCustomer = customers[0];
+				float closestDistance = (closestCustomer.transform.position - transform.position).sqrMagnitude;
+				foreach (CustomerAI customer in customers) {
+					if (customer == this) {
+						continue;
+					}
+
+					float customerDistance = (customer.transform.position - transform.position).sqrMagnitude;
+					if (customerDistance < closestDistance) {
+						closestDistance = customerDistance;
+						closestCustomer = customer;
+					}
+				}
+
+				navAgent.SetDestination(closestCustomer.transform.position);
+			}
+
+
+			yield return new WaitForSeconds(5);
+		}
+
+		navAgent.ResetPath();
+		navAgent.enabled = false;
+	}
 }
