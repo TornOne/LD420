@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+[RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(NavMeshAgent))]
 public class CustomerAI : MonoBehaviour {
 	public enum State {
@@ -30,7 +31,9 @@ public class CustomerAI : MonoBehaviour {
 	Transform seatLoc;
 	Seat seat;
 	NavMeshAgent navAgent;
+	Animator anim;
 
+	public Mesh aggressiveCustomerMesh;
 	public DrinkDesirer drinkDesirer;
 	public List<GameObject> colliders;
 
@@ -57,6 +60,7 @@ public class CustomerAI : MonoBehaviour {
 
 	void Start() {
 		navAgent = GetComponent<NavMeshAgent>();
+		anim = GetComponent<Animator>();
 		//Enter bar
 		drinkCount = Random.Range(1, drinkCount + 1);
 		PickRandomSeat();
@@ -90,6 +94,8 @@ public class CustomerAI : MonoBehaviour {
 			if (agressionLevel == agressionCap) {
 				Debug.Log("Starting to punch");
 				state = State.fighting;
+				anim.SetBool("Fighting", true);
+				GetComponentInChildren<SkinnedMeshRenderer>().sharedMesh = aggressiveCustomerMesh;
 			}
 		}
 	}
@@ -100,6 +106,7 @@ public class CustomerAI : MonoBehaviour {
 	}
 
 	IEnumerator MoveTo(Vector3 position, string finishAction = "") {
+		anim.SetFloat("WalkSpeed", GetComponent<MuscleController>().consciousness);
 		navAgent.enabled = true;
 		navAgent.SetDestination(position);
 		state = State.moving;
@@ -119,6 +126,7 @@ public class CustomerAI : MonoBehaviour {
 		switch (finishAction) {
 			case "sit":
 				state = State.waiting;
+				anim.SetFloat("WalkSpeed", 0);
 				StartCoroutine(FaceTable());
 				break;
 			case "leave":

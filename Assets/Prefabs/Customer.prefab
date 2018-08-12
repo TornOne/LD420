@@ -279,7 +279,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1399819105701588}
-  m_LocalRotation: {x: 0.00000011078645, y: 0.7071067, z: 0.7071068, w: 0.000000077527474}
+  m_LocalRotation: {x: 0.00000011095069, y: 0.7060569, z: 0.7081551, w: 0.000000077642405}
   m_LocalPosition: {x: 0.12361482, y: 0.3729701, z: 0.0022493212}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -475,7 +475,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1952743300502640}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.67, y: 1.53, z: -14.06}
+  m_LocalPosition: {x: 7.4515495, y: 1.527, z: -15.758045}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4528330817213564}
@@ -796,6 +796,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seatsNode: {fileID: 0}
+  aggressiveCustomerMesh: {fileID: 4300008, guid: 320c2ebeea7574696b033fb37b4f6df1,
+    type: 3}
   drinkDesirer: {fileID: 114697241625690138}
   colliders:
   - {fileID: 1179828986501646}
@@ -1007,7 +1009,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.12361493, y: 0.37297103, z: 0.0022485706}
+  m_ConnectedAnchor: {x: 0.12361493, y: 0.37297007, z: 0.0022485855}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -1101,7 +1103,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.12361495, y: -0.40252647, z: 0.0022495019}
+  m_ConnectedAnchor: {x: 0.12361495, y: -0.4025255, z: 0.002249487}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -1383,7 +1385,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -1.0593932, y: -0.00000023841855, z: -0.00000018277206}
+  m_ConnectedAnchor: {x: -1.0593922, y: -0.000000119209275, z: -0.00000012130477}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0

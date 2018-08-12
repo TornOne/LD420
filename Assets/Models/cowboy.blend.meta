@@ -23,6 +23,10 @@ ModelImporter:
     100034: Leg_L
     100036: Leg_R
     100038: Root
+    100040: Beard
+    100042: Cowboy_agressive
+    100044: Glasses
+    100046: hat
     400000: Armature
     400002: Bone
     400004: Bone_001
@@ -43,17 +47,35 @@ ModelImporter:
     400034: Leg_L
     400036: Leg_R
     400038: Root
+    400040: Beard
+    400042: Cowboy_agressive
+    400044: Glasses
+    400046: hat
     2100000: Brown
     2100002: Skin
     2100004: Black
     2100006: Hair
     2100008: White
     2300000: Cowboy
+    2300002: Beard
+    2300004: Cowboy_agressive
+    2300006: Glasses
+    2300008: hat
     3300000: Cowboy
+    3300002: Beard
+    3300004: Cowboy_agressive
+    3300006: Glasses
+    3300008: hat
     4300000: Cowboy
+    4300002: hat
+    4300004: Glasses
+    4300006: Beard
+    4300008: Cowboy_agressive
     7400000: Default Take
     9500000: //RootNode
     13700000: Cowboy
+    13700002: Cowboy_agressive
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1
