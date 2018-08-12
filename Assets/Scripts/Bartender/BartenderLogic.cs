@@ -18,7 +18,7 @@ public class BartenderLogic : MonoBehaviour {
 			carry.transform.parent = null;
 			Rigidbody rb = carry.GetComponentInChildren<Rigidbody>();
 			rb.isKinematic = false;
-			rb.AddForce(Camera.main.transform.forward * 10, ForceMode.VelocityChange);
+			rb.AddForce(Camera.main.transform.forward * 25, ForceMode.VelocityChange);
 
 			return true;
 		}
