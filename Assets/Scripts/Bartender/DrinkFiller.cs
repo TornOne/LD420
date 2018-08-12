@@ -44,7 +44,7 @@ public class DrinkFiller : MonoBehaviour {
 			yield return null;
 		}
 
-		while(Vector3.Distance(drink.transform.position, tray.transform.position) > 0.1f){
+		while(Vector3.Distance(drink.transform.position, tray.transform.position) > 0.2f){
 			if(!tray.isCarried) {
 				Destroy(drink);
 				yield break;

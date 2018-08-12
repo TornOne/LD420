@@ -17,6 +17,7 @@ ModelImporter:
     100022: houses
     100024: stairs
     100026: street
+    100028: level
     400000: counter
     400002: door
     400004: door_001
@@ -31,6 +32,7 @@ ModelImporter:
     400022: houses
     400024: stairs
     400026: street
+    400028: level
     2100000: wood
     2100002: floor
     2100004: window
@@ -58,6 +60,7 @@ ModelImporter:
     2300018: houses
     2300020: stairs
     2300022: street
+    2300024: level
     3300000: counter
     3300002: door
     3300004: door_001
@@ -70,6 +73,7 @@ ModelImporter:
     3300018: houses
     3300020: stairs
     3300022: street
+    3300024: level
     4300000: roof
     4300002: railings
     4300004: room
@@ -82,6 +86,7 @@ ModelImporter:
     4300018: houses
     4300020: street
     4300022: stairs
+    4300024: level
     7400000: Default Take
     9500000: //RootNode
     2186277476908879412: ImportLogs
@@ -124,7 +129,7 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
