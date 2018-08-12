@@ -806,7 +806,8 @@ MonoBehaviour:
   footSpeed: 5
   footAmplitude: 0.3
   attackStoppingDistance: 0.5
-  agressionCap: 1
+  aggressionImmunityDuration: 1
+  agressionCap: 3
   drinkCount: 3
   hp: 5
 --- !u!114 &114279515674256794

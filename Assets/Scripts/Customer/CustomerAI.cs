@@ -51,7 +51,20 @@ public class CustomerAI : MonoBehaviour {
 	public float footSpeed = 3, footAmplitude = 0.5f;
 	public float attackStoppingDistance = 1.0f;
 
+	public float aggressionImmunityDuration = 1f;
+	private bool isAggressionImmune = false;
 	int agressionLevel = 0;
+	public int AggressionLevel{
+		get{
+			return agressionLevel;
+		}
+		set{
+			if(!isAggressionImmune){
+				agressionLevel = value;
+				StartCoroutine(AggressionImmunityCoroutine());
+			}
+		}
+	}
 	public int agressionCap = 3;
 
 	public int drinkCount = 3;
@@ -121,8 +134,8 @@ public class CustomerAI : MonoBehaviour {
 
 		string otherTag = collision.gameObject.tag;
 		if (otherTag == "Customer" || otherTag == "Player") {
-			agressionLevel++;
-			if (agressionLevel == agressionCap) {
+			AggressionLevel++;
+			if (AggressionLevel == agressionCap) {
 				Debug.Log("Starting to punch");
 				state = State.fighting;
 				StartCoroutine(ChooseAggro());
@@ -219,5 +232,11 @@ public class CustomerAI : MonoBehaviour {
 			rootNode.transform.localRotation = Quaternion.RotateTowards(rootNode.transform.localRotation, Quaternion.Euler(-90, -90, 0), Time.deltaTime * angle);
 			yield return null;
 		}while(distance > 0.05f && angle > 0.5f);
+	}
+
+	IEnumerator AggressionImmunityCoroutine(){
+		isAggressionImmune = true;
+		yield return new WaitForSeconds(aggressionImmunityDuration);
+		isAggressionImmune = false;
 	}
 }
