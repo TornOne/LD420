@@ -16,6 +16,6 @@ public class Whiskey : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		liquid.transform.localScale = new Vector3(1, 1, filled);
-		iceCubes.transform.localPosition = new Vector3(0, 0, -0.3f + filled * (0.2f + Mathf.Sin(Time.time) * 0.05f));
+		iceCubes.transform.localPosition = new Vector3(0, 0, -0.3f + filled * (0.2f + Mathf.Sin(Time.time + gameObject.GetInstanceID()) * 0.05f));
 	}
 }

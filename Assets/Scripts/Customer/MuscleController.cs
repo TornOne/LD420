@@ -7,10 +7,11 @@ public class MuscleController : MonoBehaviour {
 
 	private UnityEngine.AI.NavMeshAgent navAgent;
 
-	public ConfigurableJoint rightArmJoint, leftArmJoint, bodyJoint, rightLegJoint, leftLegJoint;
+	public ConfigurableJoint rightArmJoint, leftArmJoint, bodyJoint, rightLegJoint, leftLegJoint, rightShoulderJoint, leftShoulderJoint;
 	[Range(0, 1)] public float consciousness = 1, armsStrength = 0, legsStrength = 0;
 	public Vector3 leftArmTarget, rightArmTarget,
-							   leftLegTarget, rightLegTarget;
+							   leftLegTarget, rightLegTarget,
+								 leftShoulderTarget, rightShoulderTarget;
 
 	void Start(){
 		navAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -23,7 +24,8 @@ public class MuscleController : MonoBehaviour {
 
 	public void UpdateMuscles(){
 		JointDrive leftArmDrive = new JointDrive(), rightArmDrive = new JointDrive(),
-							 leftLegDrive = new JointDrive(), rightLegDrive = new JointDrive();
+							 leftLegDrive = new JointDrive(), rightLegDrive = new JointDrive(),
+							 bodyJointDrive = new JointDrive();
 
 		leftArmDrive.positionDamper = 1;
 		leftArmDrive.positionSpring = 1000 * armsStrength * consciousness;
@@ -41,10 +43,18 @@ public class MuscleController : MonoBehaviour {
 		rightLegDrive.positionSpring = 1000 * legsStrength * consciousness;
 		rightLegDrive.maximumForce = 1000;
 
+		bodyJointDrive.positionDamper = 1;
+		bodyJointDrive.positionSpring = 1000 * consciousness;
+		bodyJointDrive.maximumForce = 1000;
+
 		rightArmJoint.slerpDrive = rightArmDrive;
 		leftArmJoint.slerpDrive = leftArmDrive;
 		rightLegJoint.slerpDrive = rightLegDrive;
 		leftLegJoint.slerpDrive = leftLegDrive;
+		bodyJoint.xDrive = bodyJointDrive;
+		bodyJoint.yDrive = bodyJointDrive;
+		bodyJoint.zDrive = bodyJointDrive;
+		bodyJoint.slerpDrive = bodyJointDrive;
 
 		SoftJointLimit bodyJointLimit = new SoftJointLimit();
 
@@ -59,6 +69,9 @@ public class MuscleController : MonoBehaviour {
 		rightLegJoint.targetRotation = Quaternion.Euler(rightLegTarget);
 		leftLegJoint.targetRotation = Quaternion.Euler(leftLegTarget);
 
+		rightShoulderJoint.targetPosition = rightShoulderTarget;
+		leftShoulderJoint.targetPosition = leftShoulderTarget;
+
 		navAgent.speed = Mathf.Lerp(0, 3, consciousness);
 
 		if(consciousness < 0.1f){
@@ -66,8 +79,8 @@ public class MuscleController : MonoBehaviour {
 			bodyJoint.angularXMotion = ConfigurableJointMotion.Free;
 			bodyJoint.angularYMotion = ConfigurableJointMotion.Free;
 			bodyJoint.angularZMotion = ConfigurableJointMotion.Free;
-			bodyJoint.xMotion = ConfigurableJointMotion.Limited;
-			bodyJoint.yMotion = ConfigurableJointMotion.Limited;
+			bodyJoint.xMotion = ConfigurableJointMotion.Free;
+			bodyJoint.yMotion = ConfigurableJointMotion.Free;
 			bodyJoint.zMotion = ConfigurableJointMotion.Free;
 		}
 	}

@@ -32,6 +32,10 @@ public class CustomerAI : MonoBehaviour {
 				//EnableFists(false);
 			}
 
+			if(value == State.dead){
+				GetComponent<MuscleController>().consciousness = 0;
+			}
+
 			status = value;
 		}
 	}
@@ -218,7 +222,6 @@ public class CustomerAI : MonoBehaviour {
 			yield return new WaitForSeconds(5);
 		}
 
-		navAgent.ResetPath();
 		navAgent.enabled = false;
 	}
 
