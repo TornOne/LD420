@@ -11,7 +11,8 @@ public class MuscleController : MonoBehaviour {
 	[Range(0, 1)] public float consciousness = 1, armsStrength = 0, legsStrength = 0;
 	public Vector3 leftArmTarget, rightArmTarget,
 							   leftLegTarget, rightLegTarget,
-								 leftShoulderTarget, rightShoulderTarget;
+								 leftShoulderTarget, rightShoulderTarget,
+								 bodyJointPosTarget;
 
 	void Start(){
 		navAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -71,6 +72,7 @@ public class MuscleController : MonoBehaviour {
 
 		rightShoulderJoint.targetPosition = rightShoulderTarget;
 		leftShoulderJoint.targetPosition = leftShoulderTarget;
+		bodyJoint.targetPosition = bodyJointPosTarget;
 
 		navAgent.speed = Mathf.Lerp(0, 3, consciousness);
 

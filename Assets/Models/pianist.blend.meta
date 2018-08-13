@@ -1,0 +1,164 @@
+fileFormatVersion: 2
+guid: 237c7a364117740969e47446e7ea18dd
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Arm_L
+    100002: Arm_R
+    100004: Armature
+    100006: Body
+    100008: Glasses
+    100010: Head
+    100012: Leg_L
+    100014: Leg_R
+    100016: mustache
+    100018: //RootNode
+    100020: Root
+    100022: eyelids
+    100024: hat
+    100026: Pianist
+    100028: Pianist_agressive
+    100030: Pianist_dead
+    100032: pianist_hurt
+    100034: Bone
+    100036: Bone_001
+    400000: Arm_L
+    400002: Arm_R
+    400004: Armature
+    400006: Body
+    400008: Glasses
+    400010: Head
+    400012: Leg_L
+    400014: Leg_R
+    400016: mustache
+    400018: //RootNode
+    400020: Root
+    400022: eyelids
+    400024: hat
+    400026: Pianist
+    400028: Pianist_agressive
+    400030: Pianist_dead
+    400032: pianist_hurt
+    400034: Bone
+    400036: Bone_001
+    2100000: Black
+    2100002: Hair
+    2100004: Skin
+    2100006: White
+    2100008: Black_001
+    2100010: Skin_001
+    2100012: Hair_001
+    2100014: White_001
+    2100016: bruise_001
+    2100018: Blue_001
+    2100020: Hair_002
+    2100022: Black_002
+    2100024: Skin_002
+    2100026: White_002
+    2300000: Glasses
+    2300002: eyelids
+    2300004: hat
+    2300006: Pianist_agressive
+    2300008: Pianist_dead
+    2300010: pianist_hurt
+    3300000: Glasses
+    3300002: eyelids
+    3300004: hat
+    3300006: Pianist_agressive
+    3300008: Pianist_dead
+    3300010: pianist_hurt
+    4300000: Glasses
+    4300002: mustache
+    4300004: Pianist_agressive
+    4300006: hat
+    4300008: eyelids
+    4300010: Pianist_dead
+    4300012: pianist_hurt
+    4300014: Pianist
+    7400000: Default Take
+    9500000: //RootNode
+    13700000: mustache
+    13700002: Pianist
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

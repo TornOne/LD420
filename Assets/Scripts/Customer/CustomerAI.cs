@@ -11,15 +11,21 @@ public class CustomerAI : MonoBehaviour {
 		waiting,
 		fighting,
 		struggling,
-		dead
+		dead,
+		piano,
+		fleeing
 	}
 	State status = State.moving;
 	public State state {
 		get {
 			return status;
 		} set {
+			if(value == State.piano){
+				anim.SetBool("Sitting", true);
+				anim.SetBool("Piano", true);
+			}
 
-			if (seat.isOccupied && (value != State.moving || value != State.waiting)) {
+			if ((value != State.moving || value != State.waiting || value != State.piano) && seat != null && seat.isOccupied) {
 				seat.isOccupied = false;
 			}
 
@@ -51,6 +57,7 @@ public class CustomerAI : MonoBehaviour {
 	public List<GameObject> colliders;
 	public Rigidbody rootNode;
 	public Collider fist1, fist2;
+	public State startState = State.moving;
 
 	public float footSpeed = 3, footAmplitude = 0.5f;
 	public float attackStoppingDistance = 1.0f;
@@ -102,9 +109,13 @@ public class CustomerAI : MonoBehaviour {
 		navAgent = GetComponent<NavMeshAgent>();
 		anim = GetComponent<Animator>();
 		//Enter bar
-		drinkCount = Random.Range(1, drinkCount + 1);
-		PickRandomSeat();
-		StartCoroutine(MoveTo(seatLoc.position, "sit"));
+		if(startState == State.moving){
+			drinkCount = Random.Range(1, drinkCount + 1);
+			PickRandomSeat();
+			StartCoroutine(MoveTo(seatLoc.position, "sit"));
+		}else{
+			state = startState;
+		}
 	}
 
 	void PickRandomSeat() {
@@ -140,9 +151,13 @@ public class CustomerAI : MonoBehaviour {
 		if (otherTag == "Customer" || otherTag == "Player") {
 			AggressionLevel++;
 			if (AggressionLevel == agressionCap) {
-				Debug.Log("Starting to punch");
-				state = State.fighting;
-				StartCoroutine(ChooseAggro());
+				if(state == State.piano){
+					state = State.fleeing;
+				}else{
+					Debug.Log("Starting to punch");
+					state = State.fighting;
+					StartCoroutine(ChooseAggro());
+				}
 			}
 		}
 	}
