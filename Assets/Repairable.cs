@@ -7,6 +7,8 @@ public class Repairable : MonoBehaviour {
 
 	public AudioClip breakingSound;
 	public bool isBroken = false;
+	public float repairDistance = 5f;
+
 	private GameObject player;
 	private Vector3 startingPosition;
 	private Quaternion startingRotation;

@@ -34,20 +34,24 @@ public class CustomerAI : MonoBehaviour {
 				//EnableFists(true);
 				GetComponentInChildren<SkinnedMeshRenderer>().sharedMesh = aggressiveMesh.sharedMesh;
 				GetComponentInChildren<SkinnedMeshRenderer>().sharedMaterials = aggressiveMesh.sharedMaterials;
-				GetComponentInChildren<BillboardScript>().SetState(BillboardScript.IconState.hidden);
+				GetComponentInChildren<BillboardScript>().SetAggressionLevel(0f);
 			} else {
 				anim.SetBool("Fighting", false);
 				//EnableFists(false);
 			}
 
 			if(value == State.struggling){
+				if(state != State.fighting){
+					GameObject.FindGameObjectWithTag("UI").GetComponent<UIManager>().happiness += UIManager.grabHappiness;
+				}
 				GetComponent<MuscleController>().stickToRoot = true;
 				GetComponent<MuscleController>().consciousness = 0;
 				navAgent.enabled = false;
-				GetComponentInChildren<BillboardScript>().SetState(BillboardScript.IconState.hidden);
+				GetComponentInChildren<BillboardScript>().SetAggressionLevel(0f);
 			}
 
 			if(value == State.dead){
+				GameObject.FindGameObjectWithTag("UI").GetComponent<UIManager>().happiness += UIManager.deathHappiness;
 				GetComponent<MuscleController>().stickToRoot = true;
 				GetComponent<MuscleController>().consciousness = 0;
 			}
@@ -55,7 +59,7 @@ public class CustomerAI : MonoBehaviour {
 			if(value == State.fleeing){
 				anim.SetBool("Sitting", false);
 				anim.SetBool("Piano", false);
-				GetComponentInChildren<BillboardScript>().SetState(BillboardScript.IconState.hidden);
+				GetComponentInChildren<BillboardScript>().SetAggressionLevel(0f);
 			}
 
 			status = value;
@@ -131,7 +135,6 @@ public class CustomerAI : MonoBehaviour {
 	}
 
 	void Start() {
-		GetComponentInChildren<BillboardScript>().SetState(BillboardScript.IconState.hidden);
 		seatsNode = GameObject.FindGameObjectWithTag("SeatNode").transform;
 		navAgent = GetComponent<NavMeshAgent>();
 		anim = GetComponent<Animator>();
@@ -146,7 +149,7 @@ public class CustomerAI : MonoBehaviour {
 	}
 
 	void Update(){
-		if(state == State.waiting && ! drinkDesirer.isDrinking){
+		if(state == State.waiting && !drinkDesirer.isDrinking){
 			agressionLevel += Time.deltaTime;
 			UpdateIcon();
 		}else if(state == State.fighting && target != null){
@@ -190,6 +193,7 @@ public class CustomerAI : MonoBehaviour {
 				if(!isAggressive){
 					state = State.fleeing;
 				}else{
+					GameObject.FindGameObjectWithTag("UI").GetComponent<UIManager>().happiness += UIManager.fightingHappiness;
 					Debug.Log("Starting to punch");
 					state = State.fighting;
 					StartCoroutine(ChooseAggro());
@@ -204,13 +208,7 @@ public class CustomerAI : MonoBehaviour {
 	}
 
 	void UpdateIcon(){
-		if(AggressionLevel >= 90f){
-			GetComponentInChildren<BillboardScript>().SetState(BillboardScript.IconState.blinking);
-		}else if(AggressionLevel >= 50f){
-			GetComponentInChildren<BillboardScript>().SetState(BillboardScript.IconState.shown);
-		}else{
-			GetComponentInChildren<BillboardScript>().SetState(BillboardScript.IconState.hidden);
-		}
+		GetComponentInChildren<BillboardScript>().SetAggressionLevel(agressionLevel / agressionCap);
 	}
 
 	IEnumerator MoveTo(Vector3 position, string finishAction = "") {
@@ -238,6 +236,7 @@ public class CustomerAI : MonoBehaviour {
 				StartCoroutine(FaceTable());
 				break;
 			case "leave":
+				GameObject.FindGameObjectWithTag("UI").GetComponent<UIManager>().happiness += UIManager.leaveHappiness;
 				Destroy(gameObject);
 				break;
 

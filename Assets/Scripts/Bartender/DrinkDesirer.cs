@@ -14,6 +14,8 @@ public class DrinkDesirer : MonoBehaviour {
 	public float drinkAlcoholContent = 0.2f;
 	public AudioClip punchSfx;
 
+	public float aggressionMoneyMult = 0.1f;
+
 	void Start() {
 		player = GameObject.FindGameObjectWithTag("Player").GetComponent<BartenderLogic>();
 		tray = GameObject.FindGameObjectWithTag("Tray").GetComponent<Tray>();
@@ -33,6 +35,7 @@ public class DrinkDesirer : MonoBehaviour {
 		} else if (AI.state == CustomerAI.State.waiting && (tray.transform.position - transform.position).magnitude <= 2 && tray.RemoveDrink(drinkType) && !isDrinking) {
 			drinkType = "";
 			StartCoroutine(DrinkingCoroutine());
+			GameObject.FindGameObjectWithTag("UI").GetComponent<UIManager>().money += (int) (5 + (100f - AI.AggressionLevel) * aggressionMoneyMult);
 		}
 	}
 
@@ -58,7 +61,7 @@ public class DrinkDesirer : MonoBehaviour {
 
 	IEnumerator DrinkingCoroutine(){
 		isDrinking = true;
-		AI.AggressionLevel -= 20f;
+		AI.AggressionLevel -= 50f;
 		GameObject drink = Instantiate(drinkPrefab, hand.position, hand.rotation);
 		drink.GetComponent<Collider>().enabled = false;
 		drink.GetComponent<Rigidbody>().isKinematic = true;
