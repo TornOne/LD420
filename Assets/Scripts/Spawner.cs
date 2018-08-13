@@ -2,7 +2,7 @@
 using UnityEngine;
 
 public class Spawner : MonoBehaviour {
-	public GameObject spawnable;
+	public GameObject[] spawnables;
 	public float spawnTime;
 
 	void Start() {
@@ -10,7 +10,7 @@ public class Spawner : MonoBehaviour {
 	}
 
 	IEnumerator Spawn(float time) {
-		Instantiate(spawnable, transform.position, Quaternion.identity);
+		Instantiate(spawnables[(int) Random.Range(0, spawnables.Length)], transform.position, Quaternion.identity);
 		yield return new WaitForSeconds(spawnTime);
 		StartCoroutine(Spawn(spawnTime));
 	}

@@ -1,84 +1,76 @@
 fileFormatVersion: 2
-guid: 237c7a364117740969e47446e7ea18dd
+guid: 71092cae3e2014ab3b563b30391ba3a1
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: Arm_L
     100002: Arm_R
     100004: Armature
-    100006: Body
-    100008: Bone
-    100010: Bone_001
-    100012: eyelids
-    100014: Glasses
-    100016: hat
-    100018: Head
-    100020: Leg_L
-    100022: Leg_R
-    100024: Pianist
-    100026: //RootNode
-    100028: Pianist_agressive
-    100030: Pianist_dead
-    100032: pianist_hurt
-    100034: Root
+    100006: Beard
+    100008: Body
+    100010: Cowboy
+    100012: //RootNode
+    100014: Cowboy_agressive
+    100016: Cowboy_dead
+    100018: Cowboy_hurt
+    100020: eyelids
+    100022: Glasses
+    100024: hat
+    100026: Head
+    100028: Leg_L
+    100030: Leg_R
+    100032: Root
+    100034: Bone
+    100036: Bone_001
     400000: Arm_L
     400002: Arm_R
     400004: Armature
-    400006: Body
-    400008: Bone
-    400010: Bone_001
-    400012: eyelids
-    400014: Glasses
-    400016: hat
-    400018: Head
-    400020: Leg_L
-    400022: Leg_R
-    400024: Pianist
-    400026: //RootNode
-    400028: Pianist_agressive
-    400030: Pianist_dead
-    400032: pianist_hurt
-    400034: Root
-    2100000: Black
-    2100002: Skin_001
-    2100004: bruise_001
-    2100006: Black_001
-    2100008: Blue_001
-    2100010: Hair_001
-    2100012: White_001
-    2100014: Hair
-    2100016: Skin
-    2100018: Hair_002
-    2100020: Black_002
-    2100022: Skin_002
-    2100024: White_002
-    2300000: eyelids
-    2300002: Glasses
-    2300004: hat
-    2300006: Pianist_agressive
-    2300008: Pianist_dead
-    2300010: pianist_hurt
-    2300012: Pianist
-    3300000: eyelids
-    3300002: Glasses
-    3300004: hat
-    3300006: Pianist_agressive
-    3300008: Pianist_dead
-    3300010: pianist_hurt
-    3300012: Pianist
-    4300000: Glasses
-    4300002: hat
-    4300004: eyelids
-    4300006: pianist_hurt
-    4300008: Pianist
-    4300010: Pianist_dead
-    4300012: Pianist_agressive
+    400006: Beard
+    400008: Body
+    400010: Cowboy
+    400012: //RootNode
+    400014: Cowboy_agressive
+    400016: Cowboy_dead
+    400018: Cowboy_hurt
+    400020: eyelids
+    400022: Glasses
+    400024: hat
+    400026: Head
+    400028: Leg_L
+    400030: Leg_R
+    400032: Root
+    400034: Bone
+    400036: Bone_001
+    2100000: Brown
+    2100002: Black
+    2100004: Hair
+    2100006: Skin
+    2100008: bruise
+    2100010: Blue
+    2100012: White
+    2300000: Beard
+    2300002: eyelids
+    2300004: Glasses
+    2300006: hat
+    3300000: Beard
+    3300002: eyelids
+    3300004: Glasses
+    3300006: hat
+    4300000: hat
+    4300002: Glasses
+    4300004: Beard
+    4300006: Cowboy_hurt
+    4300008: Cowboy_dead
+    4300010: Cowboy
+    4300012: Cowboy_agressive
+    4300014: eyelids
     7400000: Default Take
     9500000: //RootNode
-    13700000: Pianist
-    13700002: Pianist_agressive
-    13700004: Pianist_dead
-    13700006: pianist_hurt
+    13700000: Cowboy
+    13700002: Cowboy_agressive
+    13700004: Cowboy_dead
+    13700006: Cowboy_hurt
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1

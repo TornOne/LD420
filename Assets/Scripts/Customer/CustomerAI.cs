@@ -32,7 +32,9 @@ public class CustomerAI : MonoBehaviour {
 			if (value == State.fighting) {
 				anim.SetBool("Fighting", true);
 				//EnableFists(true);
-				GetComponentInChildren<SkinnedMeshRenderer>().sharedMesh = aggressiveCustomerMesh;
+				GetComponentInChildren<SkinnedMeshRenderer>().sharedMesh = aggressiveMesh.sharedMesh;
+				GetComponentInChildren<SkinnedMeshRenderer>().sharedMaterials = aggressiveMesh.sharedMaterials;
+				GetComponentInChildren<BillboardScript>().SetState(BillboardScript.IconState.hidden);
 			} else {
 				anim.SetBool("Fighting", false);
 				//EnableFists(false);
@@ -42,6 +44,7 @@ public class CustomerAI : MonoBehaviour {
 				GetComponent<MuscleController>().stickToRoot = true;
 				GetComponent<MuscleController>().consciousness = 0;
 				navAgent.enabled = false;
+				GetComponentInChildren<BillboardScript>().SetState(BillboardScript.IconState.hidden);
 			}
 
 			if(value == State.dead){
@@ -52,6 +55,7 @@ public class CustomerAI : MonoBehaviour {
 			if(value == State.fleeing){
 				anim.SetBool("Sitting", false);
 				anim.SetBool("Piano", false);
+				GetComponentInChildren<BillboardScript>().SetState(BillboardScript.IconState.hidden);
 			}
 
 			status = value;
@@ -64,31 +68,41 @@ public class CustomerAI : MonoBehaviour {
 	NavMeshAgent navAgent;
 	Animator anim;
 
-	public Mesh aggressiveCustomerMesh;
+	public SkinnedMeshRenderer aggressiveMesh, hurtMesh, deadMesh;
 	public DrinkDesirer drinkDesirer;
 	public List<GameObject> colliders;
 	public Rigidbody rootNode, bodyNode;
 	public Collider fist1, fist2;
 	public State startState = State.moving;
+	public bool isAggressive = true;
 
 	public float footSpeed = 3, footAmplitude = 0.5f;
 	public float attackStoppingDistance = 1.0f;
 
 	public float aggressionImmunityDuration = 1f;
 	private bool isAggressionImmune = false;
-	int agressionLevel = 0;
-	public int AggressionLevel{
+	float agressionLevel = 0;
+	public float AggressionLevel{
 		get{
 			return agressionLevel;
 		}
 		set{
 			if(!isAggressionImmune){
-				agressionLevel = value;
+				agressionLevel = Mathf.Clamp(value, 0f, 100f);
+				if(state == State.moving || state == State.waiting){
+					if(AggressionLevel >= 90f){
+						GetComponentInChildren<BillboardScript>().SetState(BillboardScript.IconState.blinking);
+					}else if(AggressionLevel >= 50f){
+						GetComponentInChildren<BillboardScript>().SetState(BillboardScript.IconState.shown);
+					}else{
+						GetComponentInChildren<BillboardScript>().SetState(BillboardScript.IconState.hidden);
+					}
+				}
 				StartCoroutine(AggressionImmunityCoroutine());
 			}
 		}
 	}
-	public int agressionCap = 3;
+	public float agressionCap = 100f;
 
 	public int drinkCount = 3;
 	public int DrinkCount {
@@ -111,12 +125,18 @@ public class CustomerAI : MonoBehaviour {
 		} set {
 			if (value <= 0) {
 				state = State.dead;
+				GetComponentInChildren<SkinnedMeshRenderer>().sharedMesh = deadMesh.sharedMesh;
+				GetComponentInChildren<SkinnedMeshRenderer>().sharedMaterials = deadMesh.sharedMaterials;
+			}else if(value < 2){
+				GetComponentInChildren<SkinnedMeshRenderer>().sharedMesh = hurtMesh.sharedMesh;
+				GetComponentInChildren<SkinnedMeshRenderer>().sharedMaterials = hurtMesh.sharedMaterials;
 			}
 			hp = value;
 		}
 	}
 
 	void Start() {
+		GetComponentInChildren<BillboardScript>().SetState(BillboardScript.IconState.hidden);
 		seatsNode = GameObject.FindGameObjectWithTag("SeatNode").transform;
 		navAgent = GetComponent<NavMeshAgent>();
 		anim = GetComponent<Animator>();
@@ -127,6 +147,12 @@ public class CustomerAI : MonoBehaviour {
 			StartCoroutine(MoveTo(seatLoc.position, "sit"));
 		}else{
 			state = startState;
+		}
+	}
+
+	void Update(){
+		if(state == State.waiting){
+			agressionLevel += Time.deltaTime;
 		}
 	}
 
@@ -160,13 +186,13 @@ public class CustomerAI : MonoBehaviour {
 		}
 
 		string otherTag = collision.gameObject.tag;
-		if (otherTag == "Customer" || otherTag == "Player") {
-			AggressionLevel++;
-			if (AggressionLevel >= agressionCap && state != State.struggling) {
-				if(state == State.piano){
+		if (otherTag == "Customer" || otherTag == "Player" || otherTag == "Tray") {
+			AggressionLevel += 30f;
+			if (AggressionLevel >= agressionCap && state != State.struggling && state != State.fighting) {
+				if(!isAggressive){
 					state = State.fleeing;
-				}else if(state != State.fleeing){
-					Debug.Log("Starting to punch");
+				}else{
+					//Debug.Log("Starting to punch");
 					state = State.fighting;
 					StartCoroutine(ChooseAggro());
 				}

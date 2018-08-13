@@ -37,6 +37,7 @@ public class DrinkDesirer : MonoBehaviour {
 
 	IEnumerator DrinkingCoroutine(){
 		isDrinking = true;
+		AI.AggressionLevel -= 20f;
 		GameObject drink = Instantiate(drinkPrefab, hand.position, hand.rotation);
 		drink.GetComponent<Collider>().enabled = false;
 		drink.GetComponent<Rigidbody>().isKinematic = true;

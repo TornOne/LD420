@@ -85,6 +85,12 @@ public class MuscleController : MonoBehaviour {
 			bodyJoint.xMotion = ConfigurableJointMotion.Free;
 			bodyJoint.yMotion = ConfigurableJointMotion.Free;
 			bodyJoint.zMotion = ConfigurableJointMotion.Free;
+			leftShoulderJoint.xMotion = ConfigurableJointMotion.Locked;
+			leftShoulderJoint.yMotion = ConfigurableJointMotion.Locked;
+			leftShoulderJoint.zMotion = ConfigurableJointMotion.Locked;
+			rightShoulderJoint.xMotion = ConfigurableJointMotion.Locked;
+			rightShoulderJoint.yMotion = ConfigurableJointMotion.Locked;
+			rightShoulderJoint.zMotion = ConfigurableJointMotion.Locked;
 		}
 	}
 
