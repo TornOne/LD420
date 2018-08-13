@@ -1,0 +1,213 @@
+fileFormatVersion: 2
+guid: 1bb9a61682bfc44c3b1e637b664e42ec
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Beard
+    100002: Chair
+    100004: door_l
+    100006: door_r
+    100008: edge__l
+    100010: //RootNode
+    100012: entrance
+    100014: Fassade
+    100016: Floor
+    100018: Glasses
+    100020: hat
+    100022: hat_002
+    100024: piano
+    100026: Planks
+    100028: Sign
+    100030: Table_002
+    100032: Table_003
+    100034: Table_leg_000
+    100036: Table_leg_002
+    100038: Table_leg_005
+    100040: Table_leg_006
+    100042: Table_leg_007
+    400000: Beard
+    400002: Chair
+    400004: door_l
+    400006: door_r
+    400008: edge__l
+    400010: //RootNode
+    400012: entrance
+    400014: Fassade
+    400016: Floor
+    400018: Glasses
+    400020: hat
+    400022: hat_002
+    400024: piano
+    400026: Planks
+    400028: Sign
+    400030: Table_002
+    400032: Table_003
+    400034: Table_leg_000
+    400036: Table_leg_002
+    400038: Table_leg_005
+    400040: Table_leg_006
+    400042: Table_leg_007
+    2100000: wood_004
+    2100002: wood
+    2100004: Material
+    2100006: Brown
+    2100008: Black_001
+    2100010: Hair
+    2100012: sand
+    2100014: planks
+    2100016: window
+    2100018: wall_texture
+    2100020: wall_texture__wall_texture_jpg_001
+    2100022: wood__wall_texture_jpg_001
+    2100024: Black__wall_texture_jpg_001
+    2100026: Black
+    2100028: wood_002
+    2100030: White_002
+    2100032: wood_003
+    2100034: wood_001
+    2300000: Beard
+    2300002: Chair
+    2300004: door_l
+    2300006: door_r
+    2300008: edge__l
+    2300010: Fassade
+    2300012: Floor
+    2300014: Glasses
+    2300016: hat
+    2300018: hat_002
+    2300020: piano
+    2300022: Planks
+    2300024: Sign
+    2300026: Table_002
+    2300028: Table_003
+    2300030: Table_leg_000
+    2300032: Table_leg_002
+    2300034: Table_leg_005
+    2300036: Table_leg_006
+    2300038: Table_leg_007
+    3300000: Beard
+    3300002: Chair
+    3300004: door_l
+    3300006: door_r
+    3300008: edge__l
+    3300010: Fassade
+    3300012: Floor
+    3300014: Glasses
+    3300016: hat
+    3300018: hat_002
+    3300020: piano
+    3300022: Planks
+    3300024: Sign
+    3300026: Table_002
+    3300028: Table_003
+    3300030: Table_leg_000
+    3300032: Table_leg_002
+    3300034: Table_leg_005
+    3300036: Table_leg_006
+    3300038: Table_leg_007
+    4300000: Table_leg_007
+    4300002: Table_leg_006
+    4300004: Table_leg_005
+    4300006: Table_leg_000
+    4300008: Table_003
+    4300010: Table_002
+    4300012: Planks
+    4300014: Sign
+    4300016: hat_002
+    4300018: hat
+    4300020: Glasses
+    4300022: Beard
+    4300024: Floor
+    4300026: Fassade
+    4300028: piano
+    4300030: Chair
+    4300032: Table_leg_002
+    4300034: edge__l
+    4300036: door_r
+    4300038: door_l
+    7400000: Default Take
+    9500000: //RootNode
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

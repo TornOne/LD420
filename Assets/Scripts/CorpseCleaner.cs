@@ -20,7 +20,9 @@ public class CorpseCleaner : MonoBehaviour {
 		foreach(CustomerAI ai in ais){
 			if(collider.bounds.Contains(ai.transform.position)){
 				if(ai.state == CustomerAI.State.dead || ai.state == CustomerAI.State.struggling){
-					Destroy(ai.gameObject);
+					ai.StartCoroutine(ai.SelfDestructCoroutine());
+				}else{
+					ai.AggressionLevel = 0f;
 				}
 			}
 		}

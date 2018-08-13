@@ -36,6 +36,7 @@ public class DrinkDesirer : MonoBehaviour {
 			drinkType = "";
 			StartCoroutine(DrinkingCoroutine());
 			GameObject.FindGameObjectWithTag("UI").GetComponent<UIManager>().money += (int) (5 + (100f - AI.AggressionLevel) * aggressionMoneyMult);
+			GameObject.FindGameObjectWithTag("UI").GetComponent<UIManager>().happiness += UIManager.drinkingHappiness;
 		}
 	}
 

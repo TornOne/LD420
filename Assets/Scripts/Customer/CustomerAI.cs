@@ -252,6 +252,11 @@ public class CustomerAI : MonoBehaviour {
 		DrinkCount = drinkCount;
 	}
 
+	public IEnumerator SelfDestructCoroutine() {
+		yield return new WaitForSeconds(5f);
+		Destroy(gameObject);
+	}
+
 	IEnumerator ChooseAggro() {
 		navAgent.stoppingDistance = attackStoppingDistance;
 		while (state != State.dead && state != State.struggling) {

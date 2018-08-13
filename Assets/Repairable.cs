@@ -33,7 +33,7 @@ public class Repairable : MonoBehaviour {
 	}
 
 	void OnMouseDown() {
-		if (Vector3.Distance(player.transform.position, transform.position) > 3f || !isBroken) return;
+		if (Vector3.Distance(player.transform.position, transform.position) > repairDistance || !isBroken) return;
 
 		GetComponent<Rigidbody>().isKinematic = true;
 		transform.position = startingPosition;
@@ -45,9 +45,9 @@ public class Repairable : MonoBehaviour {
 	}
 
 	void OnMouseOver(){
-		if(Vector3.Distance(player.transform.position, transform.position) > 3f){
+		if(Vector3.Distance(player.transform.position, transform.position) > repairDistance || !isBroken){
 			GameObject.FindGameObjectWithTag("UI").GetComponent<UIManager>().ClearCrosshair();
-		}else if(isBroken){
+		}else{
 			GameObject.FindGameObjectWithTag("UI").GetComponent<UIManager>().SetRepairCrosshair();
 		}
 	}

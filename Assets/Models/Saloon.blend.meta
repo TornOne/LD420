@@ -18,6 +18,34 @@ ModelImporter:
     100024: stairs
     100026: street
     100028: level
+    100030: railing_000
+    100032: railing_001
+    100034: railing_002
+    100036: railing_003
+    100038: railing_004
+    100040: railing_005
+    100042: railing_006
+    100044: railing_007
+    100046: railing_008
+    100048: railing_009
+    100050: railing_010
+    100052: railing_011
+    100054: railing_012
+    100056: railing_014
+    100058: railing_015
+    100060: railing_016
+    100062: railing_017
+    100064: railing_020
+    100066: railing_021
+    100068: railing_022
+    100070: railing_023
+    100072: railing_024
+    100074: railing_025
+    100076: railing_026
+    100078: railing_027
+    100080: Railings
+    100082: Window_001
+    100084: Window_002
     400000: counter
     400002: door
     400004: door_001
@@ -33,6 +61,34 @@ ModelImporter:
     400024: stairs
     400026: street
     400028: level
+    400030: railing_000
+    400032: railing_001
+    400034: railing_002
+    400036: railing_003
+    400038: railing_004
+    400040: railing_005
+    400042: railing_006
+    400044: railing_007
+    400046: railing_008
+    400048: railing_009
+    400050: railing_010
+    400052: railing_011
+    400054: railing_012
+    400056: railing_014
+    400058: railing_015
+    400060: railing_016
+    400062: railing_017
+    400064: railing_020
+    400066: railing_021
+    400068: railing_022
+    400070: railing_023
+    400072: railing_024
+    400074: railing_025
+    400076: railing_026
+    400078: railing_027
+    400080: Railings
+    400082: Window_001
+    400084: Window_002
     2100000: wood
     2100002: floor
     2100004: window
@@ -64,6 +120,33 @@ ModelImporter:
     2300020: stairs
     2300022: street
     2300024: level
+    2300026: railing_000
+    2300028: railing_001
+    2300030: railing_002
+    2300032: railing_003
+    2300034: railing_004
+    2300036: railing_005
+    2300038: railing_006
+    2300040: railing_007
+    2300042: railing_008
+    2300044: railing_009
+    2300046: railing_010
+    2300048: railing_011
+    2300050: railing_012
+    2300052: railing_014
+    2300054: railing_015
+    2300056: railing_016
+    2300058: railing_017
+    2300060: railing_020
+    2300062: railing_021
+    2300064: railing_022
+    2300066: railing_023
+    2300068: railing_024
+    2300070: railing_025
+    2300072: railing_026
+    2300074: railing_027
+    2300076: Window_001
+    2300078: Window_002
     3300000: counter
     3300002: door
     3300004: door_001
@@ -77,6 +160,33 @@ ModelImporter:
     3300020: stairs
     3300022: street
     3300024: level
+    3300026: railing_000
+    3300028: railing_001
+    3300030: railing_002
+    3300032: railing_003
+    3300034: railing_004
+    3300036: railing_005
+    3300038: railing_006
+    3300040: railing_007
+    3300042: railing_008
+    3300044: railing_009
+    3300046: railing_010
+    3300048: railing_011
+    3300050: railing_012
+    3300052: railing_014
+    3300054: railing_015
+    3300056: railing_016
+    3300058: railing_017
+    3300060: railing_020
+    3300062: railing_021
+    3300064: railing_022
+    3300066: railing_023
+    3300068: railing_024
+    3300070: railing_025
+    3300072: railing_026
+    3300074: railing_027
+    3300076: Window_001
+    3300078: Window_002
     4300000: roof
     4300002: railings
     4300004: room
@@ -90,6 +200,33 @@ ModelImporter:
     4300020: street
     4300022: stairs
     4300024: level
+    4300026: Window_002
+    4300028: Window_001
+    4300030: railing_017
+    4300032: railing_016
+    4300034: railing_014
+    4300036: railing_012
+    4300038: railing_011
+    4300040: railing_009
+    4300042: railing_008
+    4300044: railing_007
+    4300046: railing_006
+    4300048: railing_005
+    4300050: railing_004
+    4300052: railing_003
+    4300054: railing_002
+    4300056: railing_025
+    4300058: railing_024
+    4300060: railing_023
+    4300062: railing_022
+    4300064: railing_021
+    4300066: railing_020
+    4300068: railing_027
+    4300070: railing_015
+    4300072: railing_010
+    4300074: railing_001
+    4300076: railing_000
+    4300078: railing_026
     7400000: Default Take
     9500000: //RootNode
     2186277476908879412: ImportLogs

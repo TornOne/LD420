@@ -27,7 +27,7 @@ public class DrinkFiller : MonoBehaviour {
 	}
 
 	void OnMouseDown() {
-		if ((tray.transform.position - transform.position).magnitude <= 1.5f && tray.isCarried && !isFilling) {
+		if ((tray.transform.position - transform.position).magnitude <= 1.5f && tray.isCarried && !isFilling && !tray.IsFull) {
 			Debug.Log("Filling glass");
 			StartCoroutine(GlassFillCoroutine());
 		}

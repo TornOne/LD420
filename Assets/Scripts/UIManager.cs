@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour {
 
-	public Image crosshair;
+	public Image crosshair, warningIndicator;
 	public RectTransform happinessArrow;
 	public Text moneyIndicator;
 
@@ -14,10 +15,18 @@ public class UIManager : MonoBehaviour {
 	public float happiness = 50f;
 	public int money = 0;
 
-	public static float grabHappiness = -5f, deathHappiness = -15f, fightingHappiness = -5f, leaveHappiness = 25f;
+	public static float grabHappiness = -5f, deathHappiness = -10f, fightingHappiness = -5f, leaveHappiness = 25f, drinkingHappiness = 5f;
 
 	void Update(){
+		if(happiness <= 0){
+			SceneManager.LoadScene("GameOverScene");
+		}
 		happiness = Mathf.Min(happiness, happinessCap);
+		if(happiness <= 25f){
+			warningIndicator.color = Time.time % 1 < 0.5f ? new Color(1f, 1f, 1f, 1f) : new Color(0, 0, 0, 0);
+		}else{
+			warningIndicator.color = new Color(0, 0, 0, 0);
+		}
 		happinessArrow.rotation = Quaternion.Euler(0, 0, Mathf.Lerp(90, 0, happiness/happinessCap));
 		moneyIndicator.text = "$" + money;
 	}

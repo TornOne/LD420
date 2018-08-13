@@ -4,10 +4,22 @@ public class Tray : MonoBehaviour {
 	public bool isCarried = true;
 	public int drinkLimit = 3;
 	int drinkCount = 0;
-	GameObject[] glasses;
+	public GameObject[] glasses;
 	public GameObject player, beer, sizzurp;
 	MeshCollider meshCollider;
 	Rigidbody rb;
+
+	public bool IsFull{
+		get{
+			int emptySlot = 0;
+			for (; emptySlot < drinkLimit; emptySlot++) {
+				if (glasses[emptySlot] == null) {
+					return false;
+				}
+			}
+			return true;
+		}
+	}
 
 	void Start() {
 		glasses = new GameObject[drinkLimit];
