@@ -40,6 +40,7 @@ public class CustomerAI : MonoBehaviour {
 
 			if(value == State.struggling){
 				GetComponent<MuscleController>().stickToRoot = true;
+				GetComponent<MuscleController>().consciousness = 0;
 				navAgent.enabled = false;
 			}
 
@@ -164,7 +165,7 @@ public class CustomerAI : MonoBehaviour {
 			if (AggressionLevel >= agressionCap && state != State.struggling) {
 				if(state == State.piano){
 					state = State.fleeing;
-				}else{
+				}else if(state != State.fleeing){
 					Debug.Log("Starting to punch");
 					state = State.fighting;
 					StartCoroutine(ChooseAggro());
