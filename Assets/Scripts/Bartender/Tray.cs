@@ -97,8 +97,23 @@ public class Tray : MonoBehaviour {
 		}
 	}
 
-	void OnMouseDown() {
-		if (!isCarried && rb.velocity.magnitude < 0.1f) {
+	void OnMouseDown(){
+		ReturnTray();
+		GameObject.FindGameObjectWithTag("UI").GetComponent<UIManager>().ClearCrosshair();
+	}
+
+	void OnMouseEnter(){
+		if(enabled)
+			GameObject.FindGameObjectWithTag("UI").GetComponent<UIManager>().SetTrayCrosshair();
+	}
+
+	void OnMouseExit(){
+		if(enabled)
+			GameObject.FindGameObjectWithTag("UI").GetComponent<UIManager>().ClearCrosshair();
+	}
+
+	public void ReturnTray() {
+		if (!isCarried) {
 			isCarried = true;
 			meshCollider.enabled = false;
 			rb.isKinematic = true;

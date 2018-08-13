@@ -941,6 +941,7 @@ MonoBehaviour:
   fist2: {fileID: 65028120117039834}
   startState: 0
   isAggressive: 1
+  target: {fileID: 0}
   footSpeed: 5
   footAmplitude: 0.3
   attackStoppingDistance: 0.5
@@ -1012,11 +1013,13 @@ MonoBehaviour:
   AI: {fileID: 114578873338501710}
   drinkTypes:
   - Beer
+  isDrinking: 0
   drinkPrefab: {fileID: 1750931437620636, guid: b049256595fde48f0a7cd358656140d7,
     type: 2}
   hand: {fileID: 4553191152512404}
   drinkingTime: 10
   drinkAlcoholContent: 0.2
+  punchSfx: {fileID: 8300000, guid: 32e2c959cf565418db588217285a732b, type: 3}
 --- !u!114 &114862113674334272
 MonoBehaviour:
   m_ObjectHideFlags: 1

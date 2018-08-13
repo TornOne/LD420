@@ -18,13 +18,13 @@ public class PianoController : MonoBehaviour {
 
 	// Update is called once per frame
 	void LateUpdate () {
-		if(!source.isPlaying){
+		if(!source.isPlaying && isPlaying){
 			source.clip = songs[(int) Random.Range(0, songs.Length)];
 			source.Play();
 		}
 		if(isPlaying && pianist.state != CustomerAI.State.piano){
-			source.clip = faceplantSfx;
-			source.Play();
+			AudioSource.PlayClipAtPoint(faceplantSfx, transform.position);
+			source.Pause();
 			isPlaying = false;
 		}
 		if(!isPlaying && pianist.state == CustomerAI.State.piano){

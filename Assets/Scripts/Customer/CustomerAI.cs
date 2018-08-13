@@ -75,6 +75,7 @@ public class CustomerAI : MonoBehaviour {
 	public Collider fist1, fist2;
 	public State startState = State.moving;
 	public bool isAggressive = true;
+	public CustomerAI target = null;
 
 	public float footSpeed = 3, footAmplitude = 0.5f;
 	public float attackStoppingDistance = 1.0f;
@@ -90,13 +91,7 @@ public class CustomerAI : MonoBehaviour {
 			if(!isAggressionImmune){
 				agressionLevel = Mathf.Clamp(value, 0f, 100f);
 				if(state == State.moving || state == State.waiting){
-					if(AggressionLevel >= 90f){
-						GetComponentInChildren<BillboardScript>().SetState(BillboardScript.IconState.blinking);
-					}else if(AggressionLevel >= 50f){
-						GetComponentInChildren<BillboardScript>().SetState(BillboardScript.IconState.shown);
-					}else{
-						GetComponentInChildren<BillboardScript>().SetState(BillboardScript.IconState.hidden);
-					}
+					UpdateIcon();
 				}
 				StartCoroutine(AggressionImmunityCoroutine());
 			}
@@ -127,7 +122,7 @@ public class CustomerAI : MonoBehaviour {
 				state = State.dead;
 				GetComponentInChildren<SkinnedMeshRenderer>().sharedMesh = deadMesh.sharedMesh;
 				GetComponentInChildren<SkinnedMeshRenderer>().sharedMaterials = deadMesh.sharedMaterials;
-			}else if(value < 2){
+			}else if(value <= 2){
 				GetComponentInChildren<SkinnedMeshRenderer>().sharedMesh = hurtMesh.sharedMesh;
 				GetComponentInChildren<SkinnedMeshRenderer>().sharedMaterials = hurtMesh.sharedMaterials;
 			}
@@ -151,8 +146,11 @@ public class CustomerAI : MonoBehaviour {
 	}
 
 	void Update(){
-		if(state == State.waiting){
+		if(state == State.waiting && ! drinkDesirer.isDrinking){
 			agressionLevel += Time.deltaTime;
+			UpdateIcon();
+		}else if(state == State.fighting && target != null){
+			transform.LookAt(target.transform);
 		}
 	}
 
@@ -192,7 +190,7 @@ public class CustomerAI : MonoBehaviour {
 				if(!isAggressive){
 					state = State.fleeing;
 				}else{
-					//Debug.Log("Starting to punch");
+					Debug.Log("Starting to punch");
 					state = State.fighting;
 					StartCoroutine(ChooseAggro());
 				}
@@ -203,6 +201,16 @@ public class CustomerAI : MonoBehaviour {
 	void LeaveBar() {
 		seat.isOccupied = false;
 		StartCoroutine(MoveTo(new Vector3(0, 0, -15), "leave"));
+	}
+
+	void UpdateIcon(){
+		if(AggressionLevel >= 90f){
+			GetComponentInChildren<BillboardScript>().SetState(BillboardScript.IconState.blinking);
+		}else if(AggressionLevel >= 50f){
+			GetComponentInChildren<BillboardScript>().SetState(BillboardScript.IconState.shown);
+		}else{
+			GetComponentInChildren<BillboardScript>().SetState(BillboardScript.IconState.hidden);
+		}
 	}
 
 	IEnumerator MoveTo(Vector3 position, string finishAction = "") {
@@ -248,27 +256,30 @@ public class CustomerAI : MonoBehaviour {
 	IEnumerator ChooseAggro() {
 		navAgent.stoppingDistance = attackStoppingDistance;
 		while (state != State.dead && state != State.struggling) {
-			navAgent.enabled = true;
-			CustomerAI[] customers = FindObjectsOfType<CustomerAI>();
+			if(target == null || target.state == State.dead || target.state == State.struggling){
+				navAgent.enabled = true;
+				CustomerAI[] customers = FindObjectsOfType<CustomerAI>();
 
-			if (customers.Length == 1) {
-				navAgent.SetDestination(transform.position);
-			} else {
-				CustomerAI closestCustomer = customers[0];
-				float closestDistance = (closestCustomer.transform.position - transform.position).sqrMagnitude;
-				foreach (CustomerAI customer in customers) {
-					if (customer == this) {
-						continue;
+				if (customers.Length == 1) {
+					navAgent.SetDestination(transform.position);
+				} else {
+					CustomerAI closestCustomer = customers[0];
+					float closestDistance = (closestCustomer.transform.position - transform.position).sqrMagnitude;
+					foreach (CustomerAI customer in customers) {
+						if (customer == this) {
+							continue;
+						}
+
+						float customerDistance = (customer.transform.position - transform.position).sqrMagnitude;
+						if (customerDistance < closestDistance && customer.state != State.dead) {
+							closestDistance = customerDistance;
+							closestCustomer = customer;
+						}
 					}
 
-					float customerDistance = (customer.transform.position - transform.position).sqrMagnitude;
-					if (customerDistance < closestDistance && customer.state != State.dead) {
-						closestDistance = customerDistance;
-						closestCustomer = customer;
-					}
+					navAgent.SetDestination(closestCustomer.transform.position);
+					target = closestCustomer;
 				}
-
-				navAgent.SetDestination(closestCustomer.transform.position);
 			}
 
 

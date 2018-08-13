@@ -515,7 +515,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1952743300502640}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.86604136, y: 1.46, z: -17.605318}
+  m_LocalPosition: {x: 0.86604136, y: 1.46, z: -25.54}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4528330817213564}
@@ -869,6 +869,7 @@ MonoBehaviour:
   fist2: {fileID: 65765180080120064}
   startState: 0
   isAggressive: 1
+  target: {fileID: 0}
   footSpeed: 5
   footAmplitude: 0.3
   attackStoppingDistance: 0.5
@@ -1007,11 +1008,13 @@ MonoBehaviour:
   AI: {fileID: 114263780982262982}
   drinkTypes:
   - Beer
+  isDrinking: 0
   drinkPrefab: {fileID: 1750931437620636, guid: b049256595fde48f0a7cd358656140d7,
     type: 2}
   hand: {fileID: 4565926349639428}
   drinkingTime: 10
   drinkAlcoholContent: 0.2
+  punchSfx: {fileID: 8300000, guid: 32e2c959cf565418db588217285a732b, type: 3}
 --- !u!114 &114851241676423146
 MonoBehaviour:
   m_ObjectHideFlags: 1

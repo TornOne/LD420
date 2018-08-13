@@ -75,7 +75,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -144,6 +144,8 @@ MonoBehaviour:
   grabSprite: {fileID: 21300000, guid: 1bfd93858cdcf4764929f20d48fdfc55, type: 3}
   holdSprite: {fileID: 21300000, guid: 254d5a659b294420886f1703d5192846, type: 3}
   traySprite: {fileID: 21300000, guid: 083461d6d6e814fe2b94024e6080244b, type: 3}
+  repairSprite: {fileID: 21300000, guid: fa014166108634976a65b3889a736eae, type: 3}
+  crosshairSprite: {fileID: 21300000, guid: c19d9a510e757445d96fc572a81862bc, type: 3}
 --- !u!222 &222066562381529342
 CanvasRenderer:
   m_ObjectHideFlags: 1

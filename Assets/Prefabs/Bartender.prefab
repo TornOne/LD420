@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 20776313126373812}
   - component: {fileID: 81089142451833776}
   - component: {fileID: 114966886534114424}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 4050648195600768}
   - component: {fileID: 114054139704262422}
   - component: {fileID: 54396784346161742}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tray
   m_TagString: Tray
   m_Icon: {fileID: 0}
@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 143443934180243200}
   - component: {fileID: 114797461024489904}
   - component: {fileID: 114200770999921486}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bartender
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 23253474724196438}
   - component: {fileID: 95681121580214144}
   - component: {fileID: 64748258599949256}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: tray
   m_TagString: Untagged
   m_Icon: {fileID: 0}
