@@ -16,7 +16,7 @@ public class CorpseCleaner : MonoBehaviour {
 
 	IEnumerator CorpseCleaningCoroutine(){
 		yield return new WaitForSeconds(cleaningInterval);
-		CustomerAI[] ais = FindObjectsOfType<CustomerAI>();
+		CustomerAI[] ais = GameObject.FindObjectsOfType<CustomerAI>();
 		foreach(CustomerAI ai in ais){
 			if(collider.bounds.Contains(ai.transform.position)){
 				if(ai.state == CustomerAI.State.dead || ai.state == CustomerAI.State.struggling){
@@ -24,5 +24,6 @@ public class CorpseCleaner : MonoBehaviour {
 				}
 			}
 		}
+		StartCoroutine(CorpseCleaningCoroutine());
 	}
 }
