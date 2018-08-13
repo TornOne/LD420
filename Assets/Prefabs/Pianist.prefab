@@ -365,14 +365,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1524355579055434}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.2151585, y: 1.21, z: -23.533836}
+  m_LocalRotation: {x: -0, y: 0.7393757, z: -0, w: 0.6732931}
+  m_LocalPosition: {x: 8.69, y: 1.21, z: -6.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4211543455978432}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 95.357, z: 0}
 --- !u!4 &4688450547328166
 Transform:
   m_ObjectHideFlags: 1
@@ -797,6 +797,8 @@ MonoBehaviour:
   rightLegTarget: {x: 0, y: 0, z: 0}
   leftShoulderTarget: {x: 0, y: 0, z: 0}
   rightShoulderTarget: {x: 0, y: 0, z: 0}
+  bodyJointPosTarget: {x: 0, y: 0, z: 0}
+  stickToRoot: 0
 --- !u!114 &114138892423564166
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -866,8 +868,10 @@ MonoBehaviour:
   - {fileID: 1236107452446168}
   - {fileID: 1218048531071950}
   rootNode: {fileID: 54602387039282640}
+  bodyNode: {fileID: 54733591248473294}
   fist1: {fileID: 65183450069678456}
   fist2: {fileID: 65885549009782258}
+  startState: 5
   footSpeed: 5
   footAmplitude: 0.3
   attackStoppingDistance: 0.5
@@ -987,7 +991,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -1.0018868, y: 0.0000003555324, z: -0.0000005960465}
+  m_ConnectedAnchor: {x: -1.0018868, y: 0.00000031059608, z: 0.00000071525585}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -1031,7 +1035,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -1.0593929, y: -0.000000119209275, z: -0.0000014936086}
+  m_ConnectedAnchor: {x: -1.059392, y: 0, z: 0.00000077323057}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -1125,7 +1129,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.97638434, y: -0.000000144355, z: 0.000000059604645}
+  m_ConnectedAnchor: {x: -0.9763835, y: 0.000000173226, z: 0.000000059604645}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 2
@@ -1219,7 +1223,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -1.0887369, y: 0.0000005960464, z: -0.0000002544839}
+  m_ConnectedAnchor: {x: -1.0887367, y: 0.0000005960464, z: -0.000000015599653}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -1313,7 +1317,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.12361495, y: -0.40252554, z: 0.0022493752}
+  m_ConnectedAnchor: {x: 0.12361489, y: -0.40252545, z: 0.002250329}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -1348,7 +1352,7 @@ ConfigurableJoint:
     bounciness: 0
     contactDistance: 0
   m_AngularZLimit:
-    limit: 45
+    limit: 90
     bounciness: 0
     contactDistance: 0
   m_TargetPosition: {x: 0, y: 0, z: 0}
@@ -1407,7 +1411,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -1.0018868, y: 0.0000003555324, z: -0.0000005960465}
+  m_ConnectedAnchor: {x: -1.0018868, y: 0.00000031059608, z: 0.00000071525585}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 2
@@ -1501,7 +1505,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.12361496, y: 0.3729701, z: 0.0022495838}
+  m_ConnectedAnchor: {x: 0.1236149, y: 0.3729705, z: 0.0022500607}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -1536,7 +1540,7 @@ ConfigurableJoint:
     bounciness: 0
     contactDistance: 0
   m_AngularZLimit:
-    limit: 45
+    limit: 90
     bounciness: 0
     contactDistance: 0
   m_TargetPosition: {x: 0, y: 0, z: 0}
@@ -1595,7 +1599,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -1.0018868, y: 0.0000003555324, z: -0.0000005960465}
+  m_ConnectedAnchor: {x: -1.0018868, y: 0.00000031059608, z: 0.00000071525585}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 2

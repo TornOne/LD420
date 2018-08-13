@@ -31,4 +31,12 @@ public class PianoController : MonoBehaviour {
 			isPlaying = true;
 		}
 	}
+
+	void OnMouseDown(){
+		AudioSource.PlayClipAtPoint(faceplantSfx, transform.position);
+	}
+
+	void OnCollisionEnter(Collision collision){
+		AudioSource.PlayClipAtPoint(faceplantSfx, transform.position, collision.impulse.magnitude);
+	}
 }

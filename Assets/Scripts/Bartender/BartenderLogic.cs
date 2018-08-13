@@ -17,9 +17,17 @@ public class BartenderLogic : MonoBehaviour {
 			isCarrying = false;
 			carry.transform.parent = null;
 			Rigidbody rb = carry.GetComponentInChildren<Rigidbody>();
-			rb.isKinematic = false;
-			rb.AddForce(Camera.main.transform.forward * 25, ForceMode.VelocityChange);
+			//rb.isKinematic = false;
 
+
+			MuscleController mc = carry.GetComponent<MuscleController>();
+			if(mc != null){
+				mc.stickToRoot = false;
+				mc.consciousness = 0;
+				mc.GetComponent<CustomerAI>().bodyNode.AddForce(Camera.main.transform.forward * 50, ForceMode.VelocityChange);
+			}else{
+				rb.AddForce(Camera.main.transform.forward * 25, ForceMode.VelocityChange);
+			}
 			return true;
 		}
 	}

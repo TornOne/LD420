@@ -592,7 +592,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5761df8480a4c4098997d8a7e59f376c, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.4
   m_Pitch: 1
@@ -1348,6 +1348,47 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfc3ec4bddacb4f0e9ca496af54b4809, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &747862811
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 747862813}
+  - component: {fileID: 747862812}
+  m_Layer: 0
+  m_Name: Cube (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
+  m_IsActive: 1
+--- !u!65 &747862812
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 747862811}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &747862813
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 747862811}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.74, y: 0.52, z: -11.53}
+  m_LocalScale: {x: 9.1875, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 31
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &767992806
 Prefab:
   m_ObjectHideFlags: 0
@@ -2208,75 +2249,6 @@ Prefab:
     - target: {fileID: 4425965599496930, guid: 584fae9f53e2549c1a69e56829d72a45, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114783664076153428, guid: 584fae9f53e2549c1a69e56829d72a45,
-        type: 2}
-      propertyPath: startState
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4425965599496930, guid: 584fae9f53e2549c1a69e56829d72a45, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 95.357
-      objectReference: {fileID: 0}
-    - target: {fileID: 153482540564632536, guid: 584fae9f53e2549c1a69e56829d72a45,
-        type: 2}
-      propertyPath: m_ConnectedAnchor.x
-      value: 0.12361489
-      objectReference: {fileID: 0}
-    - target: {fileID: 153482540564632536, guid: 584fae9f53e2549c1a69e56829d72a45,
-        type: 2}
-      propertyPath: m_ConnectedAnchor.y
-      value: -0.40252545
-      objectReference: {fileID: 0}
-    - target: {fileID: 153482540564632536, guid: 584fae9f53e2549c1a69e56829d72a45,
-        type: 2}
-      propertyPath: m_ConnectedAnchor.z
-      value: 0.002250329
-      objectReference: {fileID: 0}
-    - target: {fileID: 153482540564632536, guid: 584fae9f53e2549c1a69e56829d72a45,
-        type: 2}
-      propertyPath: m_AngularXMotion
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 153577601058219002, guid: 584fae9f53e2549c1a69e56829d72a45,
-        type: 2}
-      propertyPath: m_ConnectedAnchor.x
-      value: 0.1236149
-      objectReference: {fileID: 0}
-    - target: {fileID: 153577601058219002, guid: 584fae9f53e2549c1a69e56829d72a45,
-        type: 2}
-      propertyPath: m_ConnectedAnchor.y
-      value: 0.3729705
-      objectReference: {fileID: 0}
-    - target: {fileID: 153577601058219002, guid: 584fae9f53e2549c1a69e56829d72a45,
-        type: 2}
-      propertyPath: m_ConnectedAnchor.z
-      value: 0.0022500607
-      objectReference: {fileID: 0}
-    - target: {fileID: 153577601058219002, guid: 584fae9f53e2549c1a69e56829d72a45,
-        type: 2}
-      propertyPath: m_AngularXMotion
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 153482540564632536, guid: 584fae9f53e2549c1a69e56829d72a45,
-        type: 2}
-      propertyPath: m_AngularYMotion
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 153577601058219002, guid: 584fae9f53e2549c1a69e56829d72a45,
-        type: 2}
-      propertyPath: m_AngularYMotion
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 153482540564632536, guid: 584fae9f53e2549c1a69e56829d72a45,
-        type: 2}
-      propertyPath: m_AngularZLimit.limit
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 153577601058219002, guid: 584fae9f53e2549c1a69e56829d72a45,
-        type: 2}
-      propertyPath: m_AngularZLimit.limit
-      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 584fae9f53e2549c1a69e56829d72a45, type: 2}
@@ -3488,6 +3460,47 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8d115a65723f4b4ea44d0bba77d69c1, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1911628259
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1911628261}
+  - component: {fileID: 1911628260}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
+  m_IsActive: 1
+--- !u!65 &1911628260
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1911628259}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1911628261
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1911628259}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.56, y: 0.52, z: -11.53}
+  m_LocalScale: {x: 9.1875, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 30
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1918581508
 Prefab:
   m_ObjectHideFlags: 0

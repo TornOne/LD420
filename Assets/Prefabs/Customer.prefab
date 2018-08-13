@@ -803,8 +803,10 @@ MonoBehaviour:
   - {fileID: 1399819105701588}
   - {fileID: 1383142296271200}
   rootNode: {fileID: 54795604453146248}
+  bodyNode: {fileID: 54803053540725164}
   fist1: {fileID: 65204049666947768}
   fist2: {fileID: 65765180080120064}
+  startState: 0
   footSpeed: 5
   footAmplitude: 0.3
   attackStoppingDistance: 0.5
@@ -875,6 +877,8 @@ MonoBehaviour:
   rightLegTarget: {x: 0, y: 0, z: 0}
   leftShoulderTarget: {x: 0, y: 0, z: 0}
   rightShoulderTarget: {x: 0, y: 0, z: 0}
+  bodyJointPosTarget: {x: 0, y: 0, z: 0}
+  stickToRoot: 0
 --- !u!114 &114383096801122008
 MonoBehaviour:
   m_ObjectHideFlags: 1

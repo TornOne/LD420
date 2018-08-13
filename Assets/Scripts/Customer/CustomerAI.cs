@@ -38,8 +38,19 @@ public class CustomerAI : MonoBehaviour {
 				//EnableFists(false);
 			}
 
+			if(value == State.struggling){
+				GetComponent<MuscleController>().stickToRoot = true;
+				navAgent.enabled = false;
+			}
+
 			if(value == State.dead){
+				GetComponent<MuscleController>().stickToRoot = true;
 				GetComponent<MuscleController>().consciousness = 0;
+			}
+
+			if(value == State.fleeing){
+				anim.SetBool("Sitting", false);
+				anim.SetBool("Piano", false);
 			}
 
 			status = value;
@@ -55,7 +66,7 @@ public class CustomerAI : MonoBehaviour {
 	public Mesh aggressiveCustomerMesh;
 	public DrinkDesirer drinkDesirer;
 	public List<GameObject> colliders;
-	public Rigidbody rootNode;
+	public Rigidbody rootNode, bodyNode;
 	public Collider fist1, fist2;
 	public State startState = State.moving;
 
@@ -150,7 +161,7 @@ public class CustomerAI : MonoBehaviour {
 		string otherTag = collision.gameObject.tag;
 		if (otherTag == "Customer" || otherTag == "Player") {
 			AggressionLevel++;
-			if (AggressionLevel == agressionCap) {
+			if (AggressionLevel >= agressionCap && state != State.struggling) {
 				if(state == State.piano){
 					state = State.fleeing;
 				}else{

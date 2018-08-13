@@ -13,6 +13,7 @@ public class MuscleController : MonoBehaviour {
 							   leftLegTarget, rightLegTarget,
 								 leftShoulderTarget, rightShoulderTarget,
 								 bodyJointPosTarget;
+	public bool stickToRoot = false;
 
 	void Start(){
 		navAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -45,7 +46,7 @@ public class MuscleController : MonoBehaviour {
 		rightLegDrive.maximumForce = 1000;
 
 		bodyJointDrive.positionDamper = 1;
-		bodyJointDrive.positionSpring = 1000 * consciousness;
+		bodyJointDrive.positionSpring = stickToRoot ? 1000 : 1000 * consciousness;
 		bodyJointDrive.maximumForce = 1000;
 
 		rightArmJoint.slerpDrive = rightArmDrive;
@@ -86,4 +87,6 @@ public class MuscleController : MonoBehaviour {
 			bodyJoint.zMotion = ConfigurableJointMotion.Free;
 		}
 	}
+
+
 }
